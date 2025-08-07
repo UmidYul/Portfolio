@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+* {
+    font-family: "Fira Code", monospace;
+
+}
+
+html {
+    background-color: #282C33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282C33;
+    font-family: "Fira Code", monospace;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    color: white;
+}
+
+.right_nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    gap: 20px;
+}
+
+.left_nav {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    width: 50%;
+    font-weight: 900 !important;
+}
+
+.right_nav a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.right_nav p {
+    color: #C778DD;
+}
+
+header {
+    display: flex;
+    height: 100%;
+}
+
+.left_header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    width: 50%;
+}
+
+.left_header span {
+    color: #C778DD;
+}
+
+.left_header p {
+    color: #ABB2BF;
+}
+
+.left_header button {
+    border: 1px solid #C778DD;
+    color: white;
+    background-color: #282C33;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.right_header {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

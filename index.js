@@ -12,7 +12,9 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + "/public/"))
 
 app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/views/tech.html")
+})
+app.get("/main", (req, res) => {
     res.sendFile(__dirname + "/views/main.html")
 })
-
 app.listen(port, () => console.log("http://localhost:" + port))
