@@ -17,4 +17,7 @@ app.get("/", (req, res) => {
 app.get("/main", (req, res) => {
     res.sendFile(__dirname + "/views/main.html")
 })
+app.get("/test", (req, res) => {
+    res.sendFile(__dirname + "/views/test.html")
+})
 app.listen(port, () => console.log("http://localhost:" + port))
