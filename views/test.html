@@ -7,130 +7,67 @@
     <title>Document</title>
 </head>
 <style>
-    body {
-        background: #f0f0f0;
-        font-family: Arial, sans-serif;
-        color: #333;
+    #about-me {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: auto;
+        color: #ddd;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    #about-me h2 {
+        color: #b57edc;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .about-card {
+        background-color: #262638;
+        border-radius: 12px;
         display: flex;
-        justify-content: center;
-        padding: 40px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 30px;
+        gap: 30px;
     }
 
-    .skills-container {
-        width: 600px;
-        background: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .about-content {
+        flex: 1 1 500px;
+        min-width: 300px;
     }
 
-    .skills-category {
-        margin-bottom: 24px;
+    .about-content p {
+        margin-bottom: 15px;
+        line-height: 1.6;
     }
 
-    .skills-category h3 {
-        margin-bottom: 12px;
-        font-size: 18px;
-        color: #555;
+    .about-content ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 20px;
     }
 
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 16px;
+    .about-content li {
+        margin-bottom: 10px;
     }
 
-    .skill-item {
+    .about-icon {
+        flex: 0 1 250px;
         text-align: center;
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
-    .skill-item img {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 6px;
-    }
-
-    .skill-item span {
-        font-size: 13px;
-        color: #333;
+    .about-icon img {
+        max-width: 150px;
+        opacity: 0.9;
     }
 </style>
 
 <body>
-    <div class="skills-container">
-        <div class="skills-category">
-            <h3>Using now:</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="/Images/Icons/html.png" alt="HTML5" />
-                    <span>HTML5</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/css-3.png" alt="CSS3" />
-                    <span>CSS3</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/js.png" alt="JavaScript" />
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/bootstrap.png" alt="Bootstrap" />
-                    <span>Bootstrap</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/social.png" alt="Git" />
-                    <span>Git</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/figma.png" alt="Figma" />
-                    <span>Figma</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/node-js.png" alt="Node.js" />
-                    <span>Node.js</span>
-                </div>
-            </div>
-        </div>
 
-        <div class="skills-category">
-            <h3>Learning:</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="/Images/Icons/python.png" alt="TypeScript" />
-                    <span>Python</span>
-                </div>
-                <div class="skill-item">
-                    <img src="/Images/Icons/c.png" alt="TypeScript" />
-                    <span>C++</span>
-                </div>
-            </div>
-        </div>
 
-        <div class="skills-category">
-            <h3>Other skills:</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <img src="icons/uk-flag.svg" alt="English" />
-                    <span>English C1/C2</span>
-                </div>
-                <div class="skill-item">
-                    <img src="icons/spain-flag.svg" alt="Spanish" />
-                    <span>Spanish B1/B2</span>
-                </div>
-                <div class="skill-item">
-                    <img src="icons/cpp.svg" alt="C++" />
-                    <span>C++</span>
-                </div>
-                <div class="skill-item">
-                    <img src="icons/c.svg" alt="C" />
-                    <span>C</span>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </body>
 

@@ -246,3 +246,12 @@ span {
     font-size: 13px;
     color: white;
 }
+
+
+
+
+.about {
+    display: flex;
+    flex-direction: row !important;
+    font-size: 16px;
+}
