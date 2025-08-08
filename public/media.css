@@ -1,0 +1,96 @@
+/* ======== Tablet (планшеты) ======== */
+@media screen and (max-width: 1225px) {
+    .about-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .about-content {
+        font-size: 16px;
+    }
+}
+
+/* ======== Mobile (телефоны) ======== */
+@media screen and (max-width: 768px) {
+    .about-content {
+        font-size: 15px;
+    }
+}
+
+/* ======== Extra small screens (мини телефоны) ======== */
+@media screen and (max-width: 480px) {
+    body {
+        padding-top: 20px;
+    }
+
+    header {
+        height: 200px;
+    }
+
+    .about-content {
+        font-size: 14px;
+    }
+
+    .right_header {
+        display: none;
+    }
+
+    .left_header {
+        width: 100%;
+    }
+
+    .left_header h1 {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .left_header p {
+        font-size: 11px;
+        margin: 0.05;
+
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+    }
+
+    .right_nav {
+        display: none;
+    }
+
+    .left_nav {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .left_nav,
+    .right_nav {
+        height: 100%;
+    }
+
+    .about-content {
+        font-size: 12px;
+    }
+
+    .not_imp {
+        display: none;
+    }
+
+    #about-me {
+        width: 100%;
+        padding: 0;
+    }
+
+    .abt_tit {
+        padding-left: 20px;
+    }
+
+    .left_header button {
+        width: 90px;
+        font-size: 10px;
+    }
+}

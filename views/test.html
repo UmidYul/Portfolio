@@ -4,69 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <title>Document</title>
 </head>
 <style>
-    #about-me {
-        padding: 40px 20px;
-        max-width: 1200px;
-        margin: auto;
-        color: #ddd;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
-    #about-me h2 {
-        color: #b57edc;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .about-card {
-        background-color: #262638;
-        border-radius: 12px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 30px;
-        gap: 30px;
-    }
-
-    .about-content {
-        flex: 1 1 500px;
-        min-width: 300px;
-    }
-
-    .about-content p {
-        margin-bottom: 15px;
-        line-height: 1.6;
-    }
-
-    .about-content ul {
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 20px;
-    }
-
-    .about-content li {
-        margin-bottom: 10px;
-    }
-
-    .about-icon {
-        flex: 0 1 250px;
+    .footer {
+        background-color: #1f1f26;
+        color: #ccc;
+        padding: 20px;
+        font-family: monospace;
         text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
-    .about-icon img {
-        max-width: 150px;
-        opacity: 0.9;
+    .footer-top {
+        margin-bottom: 15px;
+    }
+
+    .media-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .media-icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .media-icons a {
+        color: #ccc;
+        font-size: 1.4rem;
+        transition: color 0.2s;
+    }
+
+    .media-icons a:hover {
+        color: #00bcd4;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    /* Optional: Responsive tweaks */
+    @media screen and (max-width: 480px) {
+        .media-icons {
+            gap: 10px;
+        }
     }
 </style>
 
 <body>
-
+    <footer class="footer">
+        <div class="footer-top">
+            <p class="media-title">Media</p>
+            <div class="media-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <!-- Add more if needed -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025. Made by Elias
+        </div>
+    </footer>
 
 
 </body>
