@@ -46,7 +46,7 @@
     }
 
     .left_header p {
-        font-size: 11px;
+        font-size: 10px;
         margin: 0.05;
 
     }
@@ -90,7 +90,36 @@
     }
 
     .left_header button {
-        width: 90px;
         font-size: 10px;
     }
+
+    .skill-item img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .skill-item span {
+        font-size: 10px;
+    }
+
+    .card {
+        width: 220px;
+    }
+
+    .card-tags {
+        font-size: 10px;
+    }
+
+    .card-body h3 {
+        font-size: 14px;
+    }
+
+    .card-body p {
+        font-size: 10px;
+    }
+
+    .live-button {
+        font-size: 10px;
+    }
+
 }
