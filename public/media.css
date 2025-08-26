@@ -55,16 +55,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 20px;
+        height: 20px !important;
     }
 
     .right_nav {
-        display: none;
+        display: none !important;
     }
 
     .left_nav {
         align-items: center;
-        justify-content: center;
+        justify-content: center !important;
     }
 
     .left_nav,
