@@ -9,6 +9,22 @@
     .about-content {
         font-size: 16px;
     }
+
+    .left_header h1 {
+        font-size: 20px;
+    }
+
+    .left_header {
+        width: 100%;
+    }
+
+    .left_header p {
+        font-size: 15px;
+    }
+
+    .right_header {
+        display: none;
+    }
 }
 
 /* ======== Mobile (телефоны) ======== */
