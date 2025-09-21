@@ -16,7 +16,8 @@
     }
 
     body {
-        width: 80%;
+        width: 90%;
+        max-width: 900px;
         background-color: #282C33;
         color: #fff;
         font-family: monospace;
@@ -26,19 +27,20 @@
         flex-direction: column;
         min-height: 100vh;
         margin: 0;
+        padding: 10px;
     }
 
     .poll-container {
         background-color: transparent;
-        padding: 25px;
+        padding: 20px;
         border-radius: 12px;
-        max-width: 700px;
-        width: 90%;
+        width: 100%;
     }
 
     h1 {
         font-size: 1.8rem;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        text-align: center;
     }
 
     h1 span {
@@ -46,8 +48,10 @@
     }
 
     p {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         color: #aaa;
+        text-align: center;
+        line-height: 1.4;
     }
 
     label {
@@ -61,12 +65,12 @@
         background-color: transparent;
         border: 1px solid #c778dd;
         border-radius: 6px;
-        padding: 10px;
+        padding: 12px;
         color: #fff;
         font-family: monospace;
-        font-size: 0.95rem;
+        font-size: 1rem;
         width: 100%;
-        min-height: 100px;
+        min-height: 120px;
         margin-bottom: 20px;
         box-sizing: border-box;
         resize: vertical;
@@ -81,22 +85,44 @@
     button {
         background-color: transparent;
         border: 1px solid #c778dd;
-        padding: 10px 20px;
+        padding: 14px;
         color: #fff;
         font-family: monospace;
-        font-size: 1rem;
+        font-size: 1.1rem;
         border-radius: 6px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
-        display: block;
-        margin-left: auto;
+        width: 100%; /* кнопка на всю ширину */
     }
 
     button:hover {
         background-color: #c778dd;
         color: #1E1E2E;
     }
+
+    /* 📱 адаптив */
+    @media (max-width: 600px) {
+        body {
+            width: 100%;
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        textarea {
+            font-size: 0.95rem;
+            min-height: 100px;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 12px;
+        }
+    }
 </style>
+
 
 <body>
     <nav>
