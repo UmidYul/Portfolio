@@ -26,7 +26,36 @@ app.get("/Contact", (req, res) => {
 app.get("/test", (req, res) => {
     res.sendFile(__dirname + "/views/test.html")
 })
+app.get("/Survey", (req, res) => {
+    res.sendFile(__dirname + "/views/survey.html")
+})
+app.post("/survey", (req, res) => {
+    res.redirect("/")
+    try {
+        const { q1, q2, q3, q4 } = req.body;
+        bot.telegram.sendMessage(8176192068, `
+<b>📋 Новый ответ опроса:</b>
 
+<b>1. Пластиковый мусор:</b>
+<blockquote>${q1 || "-"}</blockquote>
+
+<b>2. Вода в городах:</b>
+<blockquote>${q2 || "-"}</blockquote>
+
+<b>3. Приоритет государства:</b>
+<blockquote>${q3 || "-"}</blockquote>
+
+<b>4. Жизненный совет:</b>
+<blockquote>${q4 || "-"}</blockquote>
+        `, {
+            parse_mode: "HTML"
+        });
+
+    
+    } catch (error) {
+
+    }
+})
 app.post("/contact", (req, res) => {
     res.redirect("/")
     try {
