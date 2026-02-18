@@ -1,62 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technic issues!</title>
+    <title>404 | Not Found</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
 </head>
-<style>
-    html {
-        height: 100%
-    }
 
-    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-
-    body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        background-color: #282C33;
-        height: 100%;
-        font-family: "Fira Code", monospace;
-        font-size: x-large;
-        font-weight: bolder;
-    }
-
-    img {
-        width: 100px;
-        margin: 10px;
-    }
-
-    @media screen and (max-width: 650px) {
-        div {
-            font-size: 15px;
-        }
-
-        img {
-            width: 70px;
-        }
-    }
-
-    @media screen and (max-width: 400px) {
-        div {
-            font-size: 12px;
-        }
-
-        img {
-            width: 50px;
-        }
-    }
-</style>
-
-<body>
-    <img src="/Images/unplugged.png">
-
-    <div style="color: #C778DD; text-align: center;">
-        404: Not found.<br>But if you really need it — I can make it.
+<body class="error-page">
+    <div class="error-card">
+        <img src="/Images/unplugged.png" alt="Unplugged icon">
+        <h1>404. This page does not exist.</h1>
+        <p>The link may be outdated or incorrect. Return to the main page and continue from there.</p>
+        <a href="/Main"><button class="btn btn-primary">Back to home</button></a>
     </div>
 </body>
 
 </html>
+

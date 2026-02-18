@@ -1,158 +1,21 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
-    <style>
-        body {
-            background-color: #1E1E2E;
-            color: #fff;
-            font-family: monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .contact-container {
-            background-color: transparent;
-            padding: 25px;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        h1 span {
-            color: #c778dd;
-        }
-
-        p {
-            margin-bottom: 20px;
-            color: #aaa;
-        }
-
-        label {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            color: #ccc;
-        }
-
-        label span {
-            color: #c778dd;
-        }
-
-        input,
-        textarea {
-            background-color: transparent;
-            border: 1px solid #c778dd;
-            border-radius: 6px;
-            padding: 10px;
-            color: #fff;
-            font-family: monospace;
-            font-size: 0.95rem;
-            width: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: #fff;
-            outline: none;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .form-row div {
-            flex: 1;
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        button {
-            background-color: transparent;
-            border: 1px solid #c778dd;
-            padding: 10px 20px;
-            color: #fff;
-            font-family: monospace;
-            font-size: 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            display: block;
-            margin-left: auto;
-        }
-
-        button:hover {
-            background-color: #c778dd;
-            color: #1E1E2E;
-        }
-
-        /* Адаптив */
-        @media (max-width: 600px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-        }
-    </style>
+    <title>Contact Preview</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
-
-    <div class="contact-container">
-        <h1><span>/</span>contacts</h1>
-        <p>Who am i?</p>
-
-        <form action="#" method="POST">
-            <div class="form-row">
-                <div>
-                    <label for="name">Name<span>*</span></label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div>
-                    <label for="surname">Surname<span>*</span></label>
-                    <input type="text" id="surname" name="surname" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div>
-                    <label for="phone">Phone<span>*</span></label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email">
-                </div>
-            </div>
-
-            <div>
-                <label for="message">Message<span>*</span></label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-
-            <br>
-            <button type="submit">Send</button>
-        </form>
+<body class="error-page">
+    <div class="error-card">
+        <h1>Test route is active</h1>
+        <p>This route is reserved for quick checks. The main redesigned portfolio is available on the home page.</p>
+        <a href="/Main"><button class="btn btn-primary">Open home page</button></a>
     </div>
-
 </body>
 
 </html>
+

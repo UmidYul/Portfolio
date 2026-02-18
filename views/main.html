@@ -1,283 +1,275 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>Umid Yuldashev | Backend Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Umid Yuldashev, backend developer focused on Node.js, Express, API architecture, and practical cybersecurity.">
+    <meta property="og:title" content="Umid Yuldashev | Backend Developer Portfolio">
+    <meta property="og:description" content="Backend development, API architecture, and cybersecurity-oriented engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/Main">
+    <meta property="og:image" content="/Images/Cards/Brandor.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://your-domain.com/Main">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="media.css">
-    <link rel="stylesheet" href="nav-footer.css">
-    <title>About me</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="left_nav"><span>Y</span>uldashev</div>
-        <div class="right_nav">
-            <a class="underline-link" href="">
-                <span>#</span>Home
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="/Main" aria-label="Umid Yuldashev home">
+                <span class="brand-text">UMID <span>YULDASHEV</span></span>
             </a>
-            <a class="underline-link" href="/Achievements">
-                <span>#</span>Achievements
-            </a>
-            <a class="underline-link" href="/Projects">
-                <span>#</span>Projects
-            </a>
-            <!-- <a class="underline-link" href="/About">
-                <span>#</span>About-me
-            </a> -->
-            <!-- <a class="underline-link" href="/ru">RU</a> -->
-        </div>
-    </nav>
-    <header>
-        <div class="left_header">
-            <h1>I'm a <span>Back-end</span> developer and <br><span>Cebyrsecurity</span> enthusiast</h1>
-            <p>Exploring how powerful <span>Back-end</span> logic and strong <span>Cybersecurity</span> principles.</p>
-            <a href="/Contact"><button>Contact me</button></a>
-        </div>
-        <div class="right_header"><img src="/Images/cybersecurity.png"></div>
-    </header>
-    <div class="projects">
-        <div class="proj_title">
-            <p><span>#</span>Projects</p>
-            <a href="/Projects">View all</a>
-        </div>
-        <div class="proj_cards">
-            <div class="card">
-                <img src="/Images/Cards/GYM.png" class="card-image" />
-                <div class="card-tags">
-                    HTML CSS JS Express Node.js
+            <nav>
+                <a class="active" href="/Main" data-i18n="nav.home">Home</a>
+                <a href="#projects" data-i18n="nav.projects">Projects</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#services" data-i18n="nav.services">Services</a>
+                <a href="#about" data-i18n="nav.about">About</a>
+                <a href="/Contact" data-i18n="nav.contact">Contact</a>
+                <div class="lang-switch" aria-label="Language switcher">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="uz">UZ</button>
                 </div>
-                <div class="card-body">
-                    <h3>G<span>Y</span>M</h3>
-                    <p>Manage your <span>GYM</span> members!</p>
-                    <a href="https://gym-psi-fawn.vercel.app/">
-                        <button class="live-button">View</button>
-                    </a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/Images/Cards/school.png" class="card-image" />
-                <div class="card-tags">
-                    HTML CSS JS Express Node.js
-                </div>
-                <div class="card-body">
-                    <h3>School<span>21</span></h3>
-                    <p>Posts, News and <span>School</span> History!</p>
-                    <a href="https://school-21-git-main-umids-projects-4adab14d.vercel.app/">
-                        <button class="live-button">View</button>
-                    </a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/Images/Cards/Brandor.png" class="card-image" />
-                <div class="card-tags">
-                    HTML CSS JS Express Node.js
-                </div>
-                <div class="card-body">
-                    <h3><span>B</span>randor</h3>
-                    <p>Make your <span>Bussines</span> Online!</p>
-                    <a href="https://brandor-v2.vercel.app/">
-                        <button class="live-button">View</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="skills">
-        <div class="skill_title">
-            <p><span>#</span>Skills</p>
-        </div>
-        <div class="skills-container">
-            <div class="skills-category">
-                <h3>Using now:</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <img src="/Images/Icons/html.png" alt="HTML5" />
-                        <span>HTML</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/css-3.png" alt="CSS3" />
-                        <span>CSS</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/js.png" alt="JavaScript" />
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/bootstrap.png" alt="Bootstrap" />
-                        <span>Bootstrap</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/social.png" alt="Git" />
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/figma.png" alt="Figma" />
-                        <span>Figma</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/node-js.png" alt="Node.js" />
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/npm.png" alt="NPM" />
-                        <span>NPM</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/express.png" alt="Express JS" />
-                        <span>Express JS</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/api.png" alt="API" />
-                        <span>API</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/json.png" alt="JSON" />
-                        <span>JSON</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/obs.png" alt="Obsidian" />
-                        <span>Obsidian</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/vs.png" alt="VS code" />
-                        <span>VS Code</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/vercel.png" alt="Vercel" />
-                        <span>Vercel</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/images.png" alt="Netlify" />
-                        <span>Netlify</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/R.png" alt="Render" />
-                        <span>Render</span>
-                    </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☾</button>
+            </nav>
+        </header>
 
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>Learning:</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <img src="/Images/Icons/cyber-security.png" alt="Cybersecurity" />
-                        <span>Cyber Security</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/python.png" alt="Python" />
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/linux.png" alt="Linux" />
-                        <span>Linux</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/react.png" alt="React JS" />
-                        <span>React.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/vue.png" alt="vue js" />
-                        <span>Vue.js</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/Angular.png" alt="Angular" />
-                        <span>Angular</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/mysql.png" alt="MySQL" />
-                        <span>MySQL</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/docker.png" alt="Docker" />
-                        <span>Docker</span>
-                    </div>
-                    <div class=" skill-item">
-                        <img src="/Images/Icons/c.png" alt="C++" />
-                        <span>C++</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3>Other skills:</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <img src="/Images/Icons/flag.png" alt="English" />
-                        <span>English B2/C1</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/russia.png" alt="Russian" />
-                        <span>Russian C1/C2</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="/Images/Icons/uzbekistan.png" alt="Uzbekistan" />
-                        <span>Uzbek C1/C2</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="about-me">
-        <p class="abt_tit"><span>#</span>About-me</p>
-        <div class="about-card">
-            <div class="about-content">
-                <p>Hey, I'm <span>Umid</span> – a <span>full-stack</span> developer with a soft
-                    spot for clean code, dark themes, and a deep, possibly unhealthy obsession with
-                    <span>Cybersecurity</span>.
+        <section class="hero reveal" id="home">
+            <div class="hero-content">
+                <span class="hero-kicker" data-i18n="hero.kicker">Backend Engineer + Security Mindset</span>
+                <h1 data-i18n-html="hero.title">I build reliable <span class="accent">backend systems</span> and design apps that stay secure.</h1>
+                <p data-i18n="hero.subtitle">
+                    I focus on clean architecture, API quality, and practical cybersecurity. My goal is simple:
+                    create products that are fast, maintainable, and hard to break.
                 </p>
-
-                <p>By day, I'm building websites and APIs. By night, I'm probably trying to break them (ethically, of
-                    course). I love exploring how systems work — and more importantly, how to make them unbreakable. Or
-                    at least harder to break.</p>
-
-                <p class="not_imp">When I'm not fighting with bugs or reading about <span>Linux</span> internals for
-                    fun, I'm either:</p>
-
-                <ul class="not_imp">
-                    <li>I dream of traveling the world... but let’s be honest — with my current schedule, I mostly
-                        travel between my desk, the fridge, and <span>Stack Overflow</span>. ✈️💻🍕
-                    </li>
-                    <li>Spending 3 hours fixing a bug caused by a 3-second decision.</li>
-                    <li>Trying to dress like a gentleman while Googling “why is my DIV not centering?”</li>
-                </ul>
-
-                <p>Coding is more than just work — it's my favorite puzzle. Every project is a new map. Every bug is a
-                    mini boss. Every deployment? Well... that's the final boss.</p>
-
-                <p>Currently leveling up my <span>English</span> and <span>Back-end</span> skills — so if you see me
-                    talking to myself in two languages
-                    while debugging, mind your business...</p>
-
+                <div class="hero-actions">
+                    <a href="/Contact"><button class="btn btn-primary" data-i18n="hero.ctaPrimary">Start a project</button></a>
+                    <a href="#projects"><button class="btn btn-secondary" data-i18n="hero.ctaSecondary">See my work</button></a>
+                </div>
             </div>
-            <!-- <div class="about-icon not_imp">
-                <img src="/Images/person.png" alt="Cybersecurity Icon" />
-            </div> -->
-        </div>
+            <aside class="hero-card reveal">
+                <div class="hero-terminal">
+                    <p><span>$</span> uptime --portfolio</p>
+                    <p><span>$</span> quality --api --security</p>
+                    <p><span>$</span> deploy --stable --clean</p>
+                </div>
+                <div class="quick-stats">
+                    <div>
+                        <strong>3+</strong>
+                        <span data-i18n="hero.stats.projects">Live projects</span>
+                    </div>
+                    <div>
+                        <strong>15+</strong>
+                        <span data-i18n="hero.stats.tools">Tools in stack</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span data-i18n="hero.stats.learn">Learning mode</span>
+                    </div>
+                </div>
+                <div class="hero-tech">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>REST API</span>
+                    <span>Cybersecurity</span>
+                </div>
+            </aside>
+        </section>
+
+        <section class="section reveal" id="projects">
+            <div class="section-head">
+                <div>
+                    <h2 data-i18n="projects.title">Featured Projects</h2>
+                    <p data-i18n="projects.subtitle">Selected works where backend logic and product UX work together.</p>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card reveal">
+                    <img src="/Images/Cards/GYM.png" alt="GYM project preview">
+                    <div class="project-body">
+                        <div class="chips">
+                            <span class="chip">Node.js</span>
+                            <span class="chip">Express</span>
+                            <span class="chip">JavaScript</span>
+                        </div>
+                        <h3 data-i18n="projects.gym.title">GYM Platform</h3>
+                        <p data-i18n="projects.gym.desc">Management panel to track members, status, and daily processes in one place.</p>
+                        <a href="https://gym-psi-fawn.vercel.app/"><button class="btn btn-secondary" data-i18n="projects.open">Open live</button></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <img src="/Images/Cards/school.png" alt="School 21 project preview">
+                    <div class="project-body">
+                        <div class="chips">
+                            <span class="chip">Express</span>
+                            <span class="chip">Node.js</span>
+                            <span class="chip">HTML/CSS</span>
+                        </div>
+                        <h3 data-i18n="projects.school.title">School 21</h3>
+                        <p data-i18n="projects.school.desc">Education-focused portal with posts, updates, and structured content delivery.</p>
+                        <a href="https://school-21-git-main-umids-projects-4adab14d.vercel.app/"><button class="btn btn-secondary" data-i18n="projects.open">Open live</button></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <img src="/Images/Cards/Brandor.png" alt="Brandor project preview">
+                    <div class="project-body">
+                        <div class="chips">
+                            <span class="chip">REST API</span>
+                            <span class="chip">Backend</span>
+                            <span class="chip">Deployment</span>
+                        </div>
+                        <h3 data-i18n="projects.brandor.title">Brandor</h3>
+                        <p data-i18n="projects.brandor.desc">Business website focused on conversion, clean structure, and online visibility.</p>
+                        <a href="https://brandor-v2.vercel.app/"><button class="btn btn-secondary" data-i18n="projects.open">Open live</button></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <img src="/Images/Cards/higherwaist.png" alt="Higher Waist project preview">
+                    <div class="project-body">
+                        <div class="chips">
+                            <span class="chip">Landing</span>
+                            <span class="chip">Frontend</span>
+                            <span class="chip">Brand</span>
+                        </div>
+                        <h3 data-i18n="projects.higherwaist.title">Higher Waist</h3>
+                        <p data-i18n="projects.higherwaist.desc">Official website project for the Higher Waist brand with modern presentation and product focus.</p>
+                        <a href="https://www.higherwaist.uz/"><button class="btn btn-secondary" data-i18n="projects.open">Open live</button></a>
+                    </div>
+                </article>
+
+                <article class="project-card reveal">
+                    <img src="/Images/Cards/Zedly.png" alt="Zedly project preview">
+                    <div class="project-body">
+                        <div class="chips">
+                            <span class="chip">Business</span>
+                            <span class="chip">Web</span>
+                            <span class="chip">UI</span>
+                        </div>
+                        <h3 data-i18n="projects.zedly.title">Zedly</h3>
+                        <p data-i18n="projects.zedly.desc">Corporate website for Zedly with clear structure, modern visual identity, and strong usability.</p>
+                        <a href="https://zedly.uz/"><button class="btn btn-secondary" data-i18n="projects.open">Open live</button></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal" id="skills">
+            <div class="section-head">
+                <div>
+                    <h2 data-i18n="skills.title">Skills & Toolbox</h2>
+                    <p data-i18n="skills.subtitle">Core technologies I use in production and the stack I am actively improving.</p>
+                </div>
+            </div>
+            <div class="skills-layout">
+                <article class="skills-column reveal">
+                    <h3 data-i18n="skills.current">Current Focus</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </article>
+                <article class="skills-column reveal">
+                    <h3 data-i18n="skills.learning">Learning Path</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cybersecurity</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Vue</span>
+                    </div>
+                </article>
+                <article class="skills-column reveal">
+                    <h3 data-i18n="skills.languages">Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-i18n="skills.en">English B2/C1</span>
+                        <span class="skill-tag" data-i18n="skills.ru">Russian C1/C2</span>
+                        <span class="skill-tag" data-i18n="skills.uz">Uzbek C1/C2</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal" id="services">
+            <div class="section-head">
+                <div>
+                    <h2 data-i18n="services.title">Services</h2>
+                    <p data-i18n="services.subtitle">What I can help you with in real projects.</p>
+                </div>
+            </div>
+            <div class="services-grid">
+                <article class="service-card reveal">
+                    <h3 data-i18n="services.api.title">Backend & API Development</h3>
+                    <p data-i18n="services.api.desc">Design and build scalable REST APIs, auth flows, and clean server architecture.</p>
+                </article>
+                <article class="service-card reveal">
+                    <h3 data-i18n="services.security.title">Security-Focused Implementation</h3>
+                    <p data-i18n="services.security.desc">Input validation, safe data handling, basic hardening, and secure coding practices.</p>
+                </article>
+                <article class="service-card reveal">
+                    <h3 data-i18n="services.deploy.title">Deployment & Support</h3>
+                    <p data-i18n="services.deploy.desc">Deploy to cloud platforms, optimize runtime setup, and maintain project stability.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section reveal" id="about">
+            <div class="section-head">
+                <div>
+                    <h2 data-i18n="about.title">About Me</h2>
+                </div>
+            </div>
+            <div class="about">
+                <article class="about-copy reveal">
+                    <p data-i18n="about.p1">
+                        I am Umid, a developer who enjoys building robust backend products and testing systems from a security perspective.
+                        I like clean architecture, readable code, and practical engineering decisions.
+                    </p>
+                    <p data-i18n="about.p2">
+                        Most of my projects are built with Express and Node.js. I pay attention to structure, data flow, and deployment,
+                        so the product is easy to scale and maintain.
+                    </p>
+                </article>
+                <aside class="about-side reveal">
+                    <h3 data-i18n="about.drives">What drives me</h3>
+                    <ul>
+                        <li data-i18n="about.li1">Create stable, production-ready services.</li>
+                        <li data-i18n="about.li2">Improve security awareness in every stage of development.</li>
+                        <li data-i18n="about.li3">Keep learning and shipping better work each month.</li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div data-i18n="footer.copy">2026 © Umid Yuldashev</div>
+            <div class="socials">
+                <a href="https://github.com/UmidYul" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/yuldashev_u07/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://t.me/yuldashev_umid" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:y.umidjon.ilhomovich@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/umid-yuldashev-yuldashev-623327379/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.me/qr/WA32S6I2JZ7XF1" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </footer>
     </div>
-    <footer class="footer">
-        <div class="footer-top">
-            <p class="media-title"><span>Media</span></p>
-            <div class="media-icons">
-                <a href="https://github.com/UmidYul"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/yuldashev_u07/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://t.me/yuldashev_umid"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:y.umidjon.ilhomovich@gmail.com"><i class="fa-solid fa-envelope"></i></i></a>
-                <a href="https://www.linkedin.com/in/umid-yuldashev-yuldashev-623327379/"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="https://wa.me/qr/WA32S6I2JZ7XF1"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © 2025. Made by <span>Yuldashev</span>
-        </div>
-    </footer>
+
+    <script src="/app.js" defer></script>
 </body>
 
 </html>
