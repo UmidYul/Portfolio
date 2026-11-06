@@ -34,7 +34,7 @@
 
   <!-- ВЕРХНИЙ БЛОК -->
   <header class="enter flex items-center justify-between gap-3 py-5">
-    <div class="glass flex items-center gap-0.5 rounded-full p-1" role="group" aria-label="Язык">
+    <div class="glass glass-blur flex items-center gap-0.5 rounded-full p-1" role="group" aria-label="Язык">
       <button type="button" data-lang="ru" aria-pressed="true"
         class="lang h-8 min-w-[44px] rounded-full text-[13px] font-medium transition-all duration-300">RU</button>
       <button type="button" data-lang="uz" aria-pressed="false"
@@ -69,7 +69,7 @@
   </section>
 
   <!-- ТАБЫ -->
-  <div class="glass enter d2 mt-8 grid grid-cols-2 gap-1 rounded-2xl p-1" role="tablist" aria-label="Разделы">
+  <div class="glass glass-blur enter d2 mt-8 grid grid-cols-2 gap-1 rounded-2xl p-1" role="tablist" aria-label="Разделы">
     <button type="button" role="tab" id="tab-c" aria-controls="p-c" aria-selected="true" data-i18n="tabContacts"
       class="tab h-10 rounded-xl text-[14px] font-medium transition-all duration-300">Контакты</button>
     <button type="button" role="tab" id="tab-a" aria-controls="p-a" aria-selected="false" data-i18n="tabAbout"
@@ -105,14 +105,14 @@
         <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
       </a>
 
-      <a href="https://wa.me/qr/WA32S6I2JZ7XF1"
+      <a href="https://github.com/UmidYul"
         class="glass glass-hover group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:translate-x-1">
         <span class="grid h-10 w-10 flex-none place-items-center rounded-xl border border-[var(--glass-line)] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--glass-line-2)] group-hover:text-[var(--accent)]">
-          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.6-4.9A8.5 8.5 0 1 1 21 11.5Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20v-3c-3 .6-3.7-1.4-3.7-1.4-.3-.8-.8-1.3-.8-1.3-1-.6 0-.6 0-.6.9.1 1.4.9 1.4.9.9 1.4 2.3 1 2.9.8.1-.7.4-1.1.7-1.4-2.4-.3-4-1.4-4-4a3.6 3.6 0 0 1 1-2.6c-.1-.3-.4-1.3.1-2.6 0 0 .9-.3 2.9 1a6.8 6.8 0 0 1 3.4 0c2-1.3 2.9-1 2.9-1 .5 1.3.2 2.3.1 2.6a3.6 3.6 0 0 1 1 2.6c0 2.6-1.6 3.7-4 4 .4.4.7 1 .7 2.1V20"/></svg>
         </span>
         <span class="min-w-0 flex-1">
-          <span class="block text-[15px] font-medium">WhatsApp</span>
-          <span data-i18n="waHint" class="block truncate text-[13px] text-[var(--muted)]">Написать в WhatsApp</span>
+          <span class="block text-[15px] font-medium">GitHub</span>
+          <span class="block truncate text-[13px] text-[var(--muted)]">UmidYul</span>
         </span>
         <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
       </a>
@@ -145,7 +145,7 @@
 
     <!-- О СЕБЕ — показывается ВМЕСТО списка ссылок -->
     <div id="p-a" role="tabpanel" aria-labelledby="tab-a" tabindex="0" hidden
-      class="glass panel-in rounded-2xl p-5">
+      class="glass glass-blur panel-in rounded-2xl p-5">
 
       <p data-i18n="about1" class="text-[15px] leading-relaxed">Живу и работаю в Фергане.</p>
       <p data-i18n="about2" class="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">Люблю задачи, где нужно разобраться с нуля и собрать всё самому.</p>
@@ -160,8 +160,8 @@
           <dd class="mt-1.5 text-[15px] font-medium">Cybersecurity</dd>
         </div>
         <div>
-          <dt data-i18n="langsLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Языки</dt>
-          <dd class="mt-1.5 text-[15px] font-medium">UZ, RU, EN</dd>
+          <dt data-i18n="stackLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Стек</dt>
+          <dd class="mt-1.5 text-[15px] font-medium">JavaScript</dd>
         </div>
         <div>
           <dt data-i18n="cityLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Город</dt>
@@ -191,7 +191,7 @@
 </footer>
 
 <div id="toast" role="status" aria-live="polite"
-  class="glass pointer-events-none fixed bottom-[96px] left-1/2 z-30 -translate-x-1/2 translate-y-2 rounded-full px-4 py-2.5 text-[13px] font-medium opacity-0 transition-all duration-300"></div>
+  class="glass glass-blur pointer-events-none fixed bottom-[96px] left-1/2 z-30 -translate-x-1/2 translate-y-2 rounded-full px-4 py-2.5 text-[13px] font-medium opacity-0 transition-all duration-300"></div>
 
 <script>
 (function () {
@@ -234,10 +234,10 @@
     ru: {
       name: 'Умид Йулдашев', place: 'Фергана, Узбекистан', timeLabel: 'Местное время',
       tabContacts: 'Контакты', tabAbout: 'О себе',
-      waHint: 'Написать в WhatsApp', liHint: 'Профиль',
+      liHint: 'Профиль',
       about1: 'Живу и работаю в Фергане.',
       about2: 'Люблю задачи, где нужно разобраться с нуля и собрать всё самому.',
-      fieldLabel: 'Направление', langsLabel: 'Языки', cityLabel: 'Город', cityValue: 'Фергана',
+      fieldLabel: 'Направление', stackLabel: 'Стек', cityLabel: 'Город', cityValue: 'Фергана',
       save: 'Сохранить контакт', copied: 'Ссылка скопирована', failed: 'Не получилось',
       themeLabel: 'Сменить тему', shareLabel: 'Поделиться',
       locale: 'ru-RU', code: 'ru'
@@ -245,10 +245,10 @@
     uz: {
       name: 'Umid Yuldashev', place: 'Farg‘ona, O‘zbekiston', timeLabel: 'Mahalliy vaqt',
       tabContacts: 'Kontaktlar', tabAbout: 'Men haqimda',
-      waHint: 'WhatsApp orqali yozish', liHint: 'Profil',
+      liHint: 'Profil',
       about1: 'Farg‘onada yashayman va ishlayman.',
       about2: 'Noldan o‘rganib, hammasini o‘zim yig‘ish kerak bo‘lgan vazifalarni yaxshi ko‘raman.',
-      fieldLabel: 'Yo‘nalish', langsLabel: 'Tillar', cityLabel: 'Shahar', cityValue: 'Farg‘ona',
+      fieldLabel: 'Yo‘nalish', stackLabel: 'Stek', cityLabel: 'Shahar', cityValue: 'Farg‘ona',
       save: 'Kontaktni saqlash', copied: 'Havola nusxalandi', failed: 'Bajarilmadi',
       themeLabel: 'Mavzuni almashtirish', shareLabel: 'Ulashish',
       locale: 'uz-UZ', code: 'uz'
@@ -256,10 +256,10 @@
     en: {
       name: 'Umid Yuldashev', place: 'Fergana, Uzbekistan', timeLabel: 'Local time',
       tabContacts: 'Contacts', tabAbout: 'About',
-      waHint: 'Message on WhatsApp', liHint: 'Profile',
+      liHint: 'Profile',
       about1: 'I live and work in Fergana.',
       about2: 'I like problems that make me figure things out and build them myself.',
-      fieldLabel: 'Field', langsLabel: 'Languages', cityLabel: 'City', cityValue: 'Fergana',
+      fieldLabel: 'Field', stackLabel: 'Stack', cityLabel: 'City', cityValue: 'Fergana',
       save: 'Save contact', copied: 'Link copied', failed: 'Could not share',
       themeLabel: 'Switch theme', shareLabel: 'Share',
       locale: 'en-GB', code: 'en'
@@ -380,6 +380,7 @@
     'ADR;TYPE=HOME:;;;Fergana;;;Uzbekistan',
     'X-SOCIALPROFILE;TYPE=telegram:https://t.me/yuldashev_umid',
     'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/yuldashev_u07/',
+    'X-SOCIALPROFILE;TYPE=github:https://github.com/UmidYul',
     'END:VCARD'
   ].join('\r\n');
 

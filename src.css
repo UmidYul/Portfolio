@@ -89,9 +89,21 @@
   .glass {
     background-image: linear-gradient(180deg, var(--glass-top), var(--glass-bottom));
     border: 1px solid var(--glass-line);
+    box-shadow: inset 0 1px 0 var(--glass-rim), var(--glass-drop);
+  }
+
+  /* Размытие вынесено отдельным классом СПЕЦИАЛЬНО.
+     backdrop-filter вместе с transform на одном элементе ломает
+     композитинг в Chrome: при сдвиге на :hover браузер пересчитывает
+     область размытия со смещением и рисует полупрозрачный «призрак»
+     поверх соседей. Поэтому размытие вешаем только на то, что НЕ
+     двигается: шапку, табы, блок «О себе», тост и нижнюю панель.
+     Карточки ссылок сдвигаются при наведении — им только градиент,
+     кромка и обводка. Визуально на ровном графите разницы почти нет,
+     а на телефоне это ещё и пять дорогих слоёв меньше. */
+  .glass-blur {
     -webkit-backdrop-filter: blur(22px) saturate(170%);
     backdrop-filter: blur(22px) saturate(170%);
-    box-shadow: inset 0 1px 0 var(--glass-rim), var(--glass-drop);
   }
 
   .glass-hover:hover {
