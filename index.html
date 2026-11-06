@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ru" class="theme-dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Умид Йулдашев</title>
+<meta name="description" content="Визитка Умида Йулдашева — контакты. Фергана, Узбекистан.">
+<meta name="theme-color" content="#141414">
+
+<!-- Карточка-превью, когда ссылку кидают в Telegram или WhatsApp.
+     После привязки домена замени путь на абсолютный: https://твой-домен/avatar.jpg -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Умид Йулдашев">
+<meta property="og:description" content="I am the sea or I am nothing — Фергана, Узбекистан">
+<meta property="og:image" content="avatar.jpg">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="font-sans antialiased selection:bg-[var(--accent)] selection:text-[var(--accent-ink)]">
+
+<div class="noise"></div>
+<div class="lightfall"></div>
+<div class="lightfall-2"></div>
+
+<div class="relative z-10 mx-auto flex min-h-full w-full max-w-[440px] flex-col px-5 pb-36">
+
+  <!-- ВЕРХНИЙ БЛОК -->
+  <header class="enter flex items-center justify-between gap-3 py-5">
+    <div class="glass flex items-center gap-0.5 rounded-full p-1" role="group" aria-label="Язык">
+      <button type="button" data-lang="ru" aria-pressed="true"
+        class="lang h-8 min-w-[44px] rounded-full text-[13px] font-medium transition-all duration-300">RU</button>
+      <button type="button" data-lang="uz" aria-pressed="false"
+        class="lang h-8 min-w-[44px] rounded-full text-[13px] font-medium transition-all duration-300">UZ</button>
+      <button type="button" data-lang="en" aria-pressed="false"
+        class="lang h-8 min-w-[44px] rounded-full text-[13px] font-medium transition-all duration-300">EN</button>
+    </div>
+
+    <button id="theme" type="button" aria-label="Сменить тему"
+      class="glass glass-hover grid h-11 w-11 place-items-center rounded-full text-[var(--text)] transition-all duration-300">
+      <span id="theme-icon" class="grid place-items-center">
+        <svg class="icon-moon h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="icon-sun h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4"/></svg>
+      </span>
+    </button>
+  </header>
+
+  <!-- ЦЕНТРАЛЬНЫЙ БЛОК -->
+  <section class="enter d1 pt-4">
+    <div class="flex items-center justify-between gap-4">
+      <img src="avatar.jpg" alt="Умид Йулдашев" width="640" height="640" loading="eager"
+        class="h-[88px] w-[88px] flex-none rounded-full object-cover ring-1 ring-[var(--glass-line-2)] ring-offset-4 ring-offset-[var(--bg)] transition-all duration-500 hover:scale-[1.03]">
+      <div class="text-right">
+        <p data-i18n="timeLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Местное время</p>
+        <p id="clock" class="mt-1 text-[22px] font-medium tabular-nums leading-none">—</p>
+      </div>
+    </div>
+
+    <h1 data-i18n="name" class="mt-7 text-[34px] font-semibold leading-[1.1] tracking-[-.03em]">Умид Йулдашев</h1>
+    <p class="mt-3 font-serif text-[21px] italic leading-snug text-[var(--muted)]">I am the sea or I am nothing</p>
+    <p data-i18n="place" class="mt-4 text-[13px] text-[var(--muted)]">Фергана, Узбекистан</p>
+  </section>
+
+  <!-- ТАБЫ -->
+  <div class="glass enter d2 mt-8 grid grid-cols-2 gap-1 rounded-2xl p-1" role="tablist" aria-label="Разделы">
+    <button type="button" role="tab" id="tab-c" aria-controls="p-c" aria-selected="true" data-i18n="tabContacts"
+      class="tab h-10 rounded-xl text-[14px] font-medium transition-all duration-300">Контакты</button>
+    <button type="button" role="tab" id="tab-a" aria-controls="p-a" aria-selected="false" data-i18n="tabAbout"
+      class="tab h-10 rounded-xl text-[14px] font-medium transition-all duration-300">О себе</button>
+  </div>
+
+  <div class="enter d3 mt-4">
+
+    <!-- СПИСОК ССЫЛОК -->
+    <div id="p-c" role="tabpanel" aria-labelledby="tab-c" tabindex="0" class="panel-in flex flex-col gap-2.5">
+
+      <a href="https://t.me/yuldashev_umid"
+        class="glass glass-hover group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:translate-x-1">
+        <span class="grid h-10 w-10 flex-none place-items-center rounded-xl border border-[var(--glass-line)] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--glass-line-2)] group-hover:text-[var(--accent)]">
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l5 2 2 6 4-4 5 3z"/><path d="m8 13 7-5"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-[15px] font-medium">Telegram</span>
+          <span class="block truncate text-[13px] text-[var(--muted)]">@yuldashev_umid</span>
+        </span>
+        <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </a>
+
+      <a href="mailto:y.umidjon.ilhomovich@gmail.com"
+        class="glass glass-hover group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:translate-x-1">
+        <span class="grid h-10 w-10 flex-none place-items-center rounded-xl border border-[var(--glass-line)] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--glass-line-2)] group-hover:text-[var(--accent)]">
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-[15px] font-medium">Email</span>
+          <span class="block truncate text-[13px] text-[var(--muted)]">y.umidjon.ilhomovich@gmail.com</span>
+        </span>
+        <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </a>
+
+      <a href="https://wa.me/qr/WA32S6I2JZ7XF1"
+        class="glass glass-hover group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:translate-x-1">
+        <span class="grid h-10 w-10 flex-none place-items-center rounded-xl border border-[var(--glass-line)] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--glass-line-2)] group-hover:text-[var(--accent)]">
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.6-4.9A8.5 8.5 0 1 1 21 11.5Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-[15px] font-medium">WhatsApp</span>
+          <span data-i18n="waHint" class="block truncate text-[13px] text-[var(--muted)]">Написать в WhatsApp</span>
+        </span>
+        <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/yuldashev_u07/"
+        class="glass glass-hover group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:translate-x-1">
+        <span class="grid h-10 w-10 flex-none place-items-center rounded-xl border border-[var(--glass-line)] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--glass-line-2)] group-hover:text-[var(--accent)]">
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-[15px] font-medium">Instagram</span>
+          <span class="block truncate text-[13px] text-[var(--muted)]">@yuldashev_u07</span>
+        </span>
+        <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </a>
+
+      <a href="https://www.linkedin.com/in/umid-yuldashev-yuldashev-623327379/"
+        class="glass glass-hover group flex items-center gap-3.5 rounded-2xl p-4 transition-all duration-300 hover:translate-x-1">
+        <span class="grid h-10 w-10 flex-none place-items-center rounded-xl border border-[var(--glass-line)] text-[var(--muted)] transition-all duration-300 group-hover:border-[var(--glass-line-2)] group-hover:text-[var(--accent)]">
+          <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 11v6M8 8v.5"/><path d="M12 17v-3.5a1.8 1.8 0 0 1 3.6 0V17M12 11v6"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-[15px] font-medium">LinkedIn</span>
+          <span data-i18n="liHint" class="block truncate text-[13px] text-[var(--muted)]">Профиль</span>
+        </span>
+        <svg class="h-4 w-4 flex-none -translate-x-1 text-[var(--muted)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+      </a>
+
+    </div>
+
+    <!-- О СЕБЕ — показывается ВМЕСТО списка ссылок -->
+    <div id="p-a" role="tabpanel" aria-labelledby="tab-a" tabindex="0" hidden
+      class="glass panel-in rounded-2xl p-5">
+
+      <p data-i18n="about1" class="text-[15px] leading-relaxed">Живу и работаю в Фергане.</p>
+      <p data-i18n="about2" class="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">Люблю задачи, где нужно разобраться с нуля и собрать всё самому.</p>
+
+      <dl class="mt-5 grid grid-cols-2 gap-x-4 gap-y-5 border-t border-[var(--glass-line)] pt-5">
+        <div>
+          <dt class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">IELTS</dt>
+          <dd class="mt-1.5 text-[17px] font-semibold tabular-nums text-[var(--accent)]">7.0</dd>
+        </div>
+        <div>
+          <dt data-i18n="fieldLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Направление</dt>
+          <dd class="mt-1.5 text-[15px] font-medium">Cybersecurity</dd>
+        </div>
+        <div>
+          <dt data-i18n="langsLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Языки</dt>
+          <dd class="mt-1.5 text-[15px] font-medium">UZ, RU, EN</dd>
+        </div>
+        <div>
+          <dt data-i18n="cityLabel" class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">Город</dt>
+          <dd data-i18n="cityValue" class="mt-1.5 text-[15px] font-medium">Фергана</dd>
+        </div>
+      </dl>
+    </div>
+
+  </div>
+
+  <p class="enter d4 mt-10 text-center text-[12px] text-[var(--muted)]">2026 © Умид Йулдашев</p>
+</div>
+
+<!-- ЗАКРЕПЛЁННЫЙ FOOTER -->
+<footer class="glass-bar fixed inset-x-0 bottom-0 z-20 border-t border-[var(--glass-line)]">
+  <div class="pb-safe mx-auto flex w-full max-w-[440px] items-center gap-2.5 px-5 pt-4">
+    <a id="vcf" href="#" download="umid-yuldashev.vcf"
+      class="sheen flex h-[54px] flex-1 items-center justify-center gap-2.5 rounded-2xl bg-[var(--accent)] text-[15px] font-semibold text-[var(--accent-ink)] shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 active:scale-[.98]">
+      <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M5 19h14"/></svg>
+      <span data-i18n="save">Сохранить контакт</span>
+    </a>
+    <button id="share" type="button" aria-label="Поделиться"
+      class="glass glass-hover grid h-[54px] w-[54px] flex-none place-items-center rounded-2xl text-[var(--text)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-[.96]">
+      <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></svg>
+    </button>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"
+  class="glass pointer-events-none fixed bottom-[96px] left-1/2 z-30 -translate-x-1/2 translate-y-2 rounded-full px-4 py-2.5 text-[13px] font-medium opacity-0 transition-all duration-300"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var html = document.documentElement;
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ——— ТЕМА ——— */
+
+  var KEY = 'uy-theme';
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+
+  var dark = saved ? saved === 'dark'
+    : !(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
+  setTheme(dark);
+
+  function setTheme(isDark) {
+    html.classList.toggle('theme-dark', isDark);
+    html.classList.toggle('theme-light', !isDark);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', isDark ? '#141414' : '#EDEAE4');
+    try { localStorage.setItem(KEY, isDark ? 'dark' : 'light'); } catch (e) {}
+  }
+
+  var themeIcon = document.getElementById('theme-icon');
+
+  document.getElementById('theme').addEventListener('click', function () {
+    setTheme(!html.classList.contains('theme-dark'));
+    if (calm) return;
+    themeIcon.classList.remove('spin');
+    void themeIcon.offsetWidth;
+    themeIcon.classList.add('spin');
+  });
+
+  /* ——— ЯЗЫКИ ——— */
+
+  var DICT = {
+    ru: {
+      name: 'Умид Йулдашев', place: 'Фергана, Узбекистан', timeLabel: 'Местное время',
+      tabContacts: 'Контакты', tabAbout: 'О себе',
+      waHint: 'Написать в WhatsApp', liHint: 'Профиль',
+      about1: 'Живу и работаю в Фергане.',
+      about2: 'Люблю задачи, где нужно разобраться с нуля и собрать всё самому.',
+      fieldLabel: 'Направление', langsLabel: 'Языки', cityLabel: 'Город', cityValue: 'Фергана',
+      save: 'Сохранить контакт', copied: 'Ссылка скопирована', failed: 'Не получилось',
+      themeLabel: 'Сменить тему', shareLabel: 'Поделиться',
+      locale: 'ru-RU', code: 'ru'
+    },
+    uz: {
+      name: 'Umid Yuldashev', place: 'Farg‘ona, O‘zbekiston', timeLabel: 'Mahalliy vaqt',
+      tabContacts: 'Kontaktlar', tabAbout: 'Men haqimda',
+      waHint: 'WhatsApp orqali yozish', liHint: 'Profil',
+      about1: 'Farg‘onada yashayman va ishlayman.',
+      about2: 'Noldan o‘rganib, hammasini o‘zim yig‘ish kerak bo‘lgan vazifalarni yaxshi ko‘raman.',
+      fieldLabel: 'Yo‘nalish', langsLabel: 'Tillar', cityLabel: 'Shahar', cityValue: 'Farg‘ona',
+      save: 'Kontaktni saqlash', copied: 'Havola nusxalandi', failed: 'Bajarilmadi',
+      themeLabel: 'Mavzuni almashtirish', shareLabel: 'Ulashish',
+      locale: 'uz-UZ', code: 'uz'
+    },
+    en: {
+      name: 'Umid Yuldashev', place: 'Fergana, Uzbekistan', timeLabel: 'Local time',
+      tabContacts: 'Contacts', tabAbout: 'About',
+      waHint: 'Message on WhatsApp', liHint: 'Profile',
+      about1: 'I live and work in Fergana.',
+      about2: 'I like problems that make me figure things out and build them myself.',
+      fieldLabel: 'Field', langsLabel: 'Languages', cityLabel: 'City', cityValue: 'Fergana',
+      save: 'Save contact', copied: 'Link copied', failed: 'Could not share',
+      themeLabel: 'Switch theme', shareLabel: 'Share',
+      locale: 'en-GB', code: 'en'
+    }
+  };
+
+  var current = 'ru';
+  var langBtns = document.querySelectorAll('.lang');
+  var i18nNodes = document.querySelectorAll('[data-i18n]');
+
+  function paintLangs() {
+    for (var i = 0; i < langBtns.length; i++) {
+      var on = langBtns[i].getAttribute('data-lang') === current;
+      langBtns[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+      langBtns[i].style.background = on ? 'var(--text)' : 'transparent';
+      langBtns[i].style.color = on ? 'var(--bg)' : 'var(--muted)';
+    }
+  }
+
+  function applyLang(code, animate) {
+    var d = DICT[code];
+    if (!d) return;
+    current = code;
+    html.setAttribute('lang', d.code);
+
+    for (var i = 0; i < i18nNodes.length; i++) {
+      var k = i18nNodes[i].getAttribute('data-i18n');
+      if (!d[k]) continue;
+      if (i18nNodes[i].textContent !== d[k]) {
+        i18nNodes[i].textContent = d[k];
+        if (animate && !calm) {
+          i18nNodes[i].classList.remove('txt-in');
+          void i18nNodes[i].offsetWidth;
+          i18nNodes[i].classList.add('txt-in');
+        }
+      }
+    }
+
+    document.getElementById('theme').setAttribute('aria-label', d.themeLabel);
+    document.getElementById('share').setAttribute('aria-label', d.shareLabel);
+    document.querySelector('img[alt]').setAttribute('alt', d.name);
+
+    paintLangs();
+    tick();
+  }
+
+  for (var i = 0; i < langBtns.length; i++) {
+    langBtns[i].addEventListener('click', function () {
+      applyLang(this.getAttribute('data-lang'), true);
+    });
+  }
+
+  /* ——— ЧАСЫ ФЕРГАНЫ ——— */
+
+  var clock = document.getElementById('clock');
+
+  function tick() {
+    try {
+      clock.textContent = new Intl.DateTimeFormat(DICT[current].locale, {
+        timeZone: 'Asia/Tashkent', hour: '2-digit', minute: '2-digit', hour12: false
+      }).format(new Date());
+    } catch (e) { clock.textContent = ''; }
+  }
+
+  setInterval(tick, 15000);
+
+  /* ——— ТАБЫ: кнопки ИЛИ «О себе», никогда оба сразу ——— */
+
+  var tabs = [
+    { b: document.getElementById('tab-c'), p: document.getElementById('p-c') },
+    { b: document.getElementById('tab-a'), p: document.getElementById('p-a') }
+  ];
+
+  function paintTabs() {
+    tabs.forEach(function (t) {
+      var on = t.b.getAttribute('aria-selected') === 'true';
+      t.b.style.backgroundImage = on
+        ? 'linear-gradient(180deg, var(--glass-top-2), var(--glass-bottom-2))'
+        : 'none';
+      t.b.style.color = on ? 'var(--text)' : 'var(--muted)';
+    });
+  }
+
+  function select(n) {
+    tabs.forEach(function (t, i) {
+      var on = i === n;
+      t.b.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.p.hidden = !on;
+      if (on && !calm) {
+        t.p.classList.remove('panel-in');
+        void t.p.offsetWidth;
+        t.p.classList.add('panel-in');
+      }
+    });
+    paintTabs();
+  }
+
+  tabs.forEach(function (t, i) {
+    t.b.addEventListener('click', function () { select(i); });
+    t.b.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft') {
+        ev.preventDefault();
+        var n = (i + 1) % tabs.length;
+        select(n);
+        tabs[n].b.focus();
+      }
+    });
+  });
+
+  paintTabs();
+
+  /* ——— СОХРАНИТЬ КОНТАКТ ——— */
+
+  var vcard = [
+    'BEGIN:VCARD', 'VERSION:3.0',
+    'N:Yuldashev;Umid;;;', 'FN:Umid Yuldashev',
+    'EMAIL;TYPE=INTERNET:y.umidjon.ilhomovich@gmail.com',
+    'ADR;TYPE=HOME:;;;Fergana;;;Uzbekistan',
+    'X-SOCIALPROFILE;TYPE=telegram:https://t.me/yuldashev_umid',
+    'X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/yuldashev_u07/',
+    'END:VCARD'
+  ].join('\r\n');
+
+  document.getElementById('vcf').href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcard);
+
+  /* ——— ПОДЕЛИТЬСЯ ——— */
+
+  var toast = document.getElementById('toast');
+  var timer = null;
+
+  function say(text) {
+    toast.textContent = text;
+    toast.classList.remove('opacity-0', 'translate-y-2');
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      toast.classList.add('opacity-0', 'translate-y-2');
+    }, 2200);
+  }
+
+  document.getElementById('share').addEventListener('click', function () {
+    var d = DICT[current];
+    if (navigator.share) {
+      navigator.share({ title: d.name, url: location.href }).catch(function () {});
+      return;
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(location.href)
+        .then(function () { say(d.copied); })
+        .catch(function () { say(d.failed); });
+      return;
+    }
+    say(d.failed);
+  });
+
+  applyLang('ru', false);
+})();
+</script>
+</body>
+</html>

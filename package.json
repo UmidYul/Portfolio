@@ -1,15 +1,13 @@
 {
-  "dependencies": {
-    "body-parser": "^2.2.0",
-    "express": "^5.1.0",
-    "nodemon": "^3.1.10",
-    "telegraf": "^4.16.3"
-  },
-  "type": "module",
+  "name": "umid-card",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Личная страница-визитка Умида Йулдашева",
   "scripts": {
-    "start": "nodemon index.js"
+    "dev": "tailwindcss -i src.css -o styles.css --watch",
+    "build": "tailwindcss -i src.css -o styles.css --minify"
   },
   "devDependencies": {
-    "@types/body-parser": "^1.19.6"
+    "tailwindcss": "^3.4.17"
   }
 }
