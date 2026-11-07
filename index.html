@@ -10,11 +10,13 @@
 <!-- Превью ссылки в мессенджерах. После привязки домена сделай путь абсолютным. -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Умид Йулдашев">
-<meta property="og:description" content="I wanted to hear your voice. — Фергана, Узбекистан">
+<meta property="og:description" content="I am the sea or I am nothing — Фергана, Узбекистан">
 <meta property="og:image" content="avatar.jpg">
 <meta name="twitter:card" content="summary">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
@@ -69,9 +71,21 @@
             style="--d:230ms">
 
           <h1 data-i18n="name" class="rise mt-5 text-[30px] font-semibold leading-[1.08] tracking-[-.03em]" style="--d:300ms">Умид Йулдашев</h1>
-          <p data-i18n="role" class="rise mt-1.5 text-[15px] leading-snug text-[var(--muted)]" style="--d:360ms">Perhaps I belong to another century.</p>
+          <p data-i18n="role" class="rise mt-1.5 text-[15px] leading-snug text-[var(--muted)]" style="--d:360ms">Создаю цифровые продукты</p>
 
-          <p class="rise mt-5 font-serif text-[20px] italic leading-snug text-[var(--muted)]" style="--d:420ms">I wanted to hear your voice.</p>
+          <div class="rise mt-3 flex flex-wrap items-center gap-2" style="--d:400ms">
+            <span id="status" class="surf inline-flex items-center gap-1.5 rounded-full py-1 pl-2 pr-2.5 text-[11px] font-medium text-[var(--muted)]">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="status-text">—</span>
+            </span>
+            <button id="weather" type="button" hidden
+              class="surf inline-flex items-center gap-1.5 rounded-full py-1 pl-1.5 pr-2.5 text-[11px] font-medium text-[var(--muted)] transition-all duration-300 hover:text-[var(--text)] active:scale-95">
+              <span id="weather-icon" class="grid place-items-center" aria-hidden="true"></span>
+              <span id="weather-temp" class="tabular-nums">—</span>
+            </button>
+          </div>
+
+          <p class="rise mt-5 font-serif text-[20px] italic leading-snug text-[var(--muted)]" style="--d:420ms">I am the sea or I am nothing</p>
 
           <div class="rise mt-5 flex items-center justify-between gap-3 border-t border-[var(--s-hair)] pt-4 text-[13px] text-[var(--muted)]" style="--d:470ms">
             <span data-i18n="place">Фергана, Узбекистан</span>
@@ -94,65 +108,102 @@
               <div class="links" id="links">
                 <span class="links-hl" id="links-hl" aria-hidden="true"></span>
 
-                <a class="link rise" href="https://t.me/yuldashev_umid" style="--tint:#5FB3E8; --d:580ms">
+              <div class="link-wrap rise" style="--tint:#5FB3E8; --d:580ms">
+                <a class="link" href="https://t.me/yuldashev_umid">
                   <span class="link-ico">
-                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3 11l5 2 2 6 4-4 5 3z"/><path d="m8 13 7-5"/></svg>
+                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d='M21 4 3 11l5 2 2 6 4-4 5 3z'/><path d='m8 13 7-5'/></svg>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block text-[14px] font-medium">Telegram</span>
                     <span class="block truncate text-[12px] text-[var(--muted)]">@yuldashev_umid</span>
                   </span>
                 </a>
+                <button type="button" class="link-copy" data-copy="@yuldashev_umid" aria-label="Скопировать: Telegram">
+                  <span class="swap h-[14px] w-[14px]">
+                    <svg class="ic-copy h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5"/></svg>
+                    <svg class="on-copy h-[14px] w-[14px] text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+                  </span>
+                </button>
+              </div>
 
-                <a class="link rise" href="mailto:y.umidjon.ilhomovich@gmail.com" style="--tint:var(--accent); --d:630ms">
+              <div class="link-wrap rise" style="--tint:var(--accent); --d:630ms">
+                <a class="link" href="mailto:y.umidjon.ilhomovich@gmail.com">
                   <span class="link-ico">
-                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x='2.5' y='5' width='19' height='14' rx='2.5'/><path d='m3 7 9 6 9-6'/></svg>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block text-[14px] font-medium">Email</span>
                     <span class="block truncate text-[12px] text-[var(--muted)]">y.umidjon.ilhomovich@gmail.com</span>
                   </span>
                 </a>
+                <button type="button" class="link-copy" data-copy="y.umidjon.ilhomovich@gmail.com" aria-label="Скопировать: Email">
+                  <span class="swap h-[14px] w-[14px]">
+                    <svg class="ic-copy h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5"/></svg>
+                    <svg class="on-copy h-[14px] w-[14px] text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+                  </span>
+                </button>
+              </div>
 
-                <a class="link rise" href="https://github.com/UmidYul" style="--tint:var(--text); --d:680ms">
+              <div class="link-wrap rise" style="--tint:var(--text); --d:680ms">
+                <a class="link" href="https://github.com/UmidYul">
                   <span class="link-ico">
-                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20v-3c-3 .6-3.7-1.4-3.7-1.4-.3-.8-.8-1.3-.8-1.3-1-.6 0-.6 0-.6.9.1 1.4.9 1.4.9.9 1.4 2.3 1 2.9.8.1-.7.4-1.1.7-1.4-2.4-.3-4-1.4-4-4a3.6 3.6 0 0 1 1-2.6c-.1-.3-.4-1.3.1-2.6 0 0 .9-.3 2.9 1a6.8 6.8 0 0 1 3.4 0c2-1.3 2.9-1 2.9-1 .5 1.3.2 2.3.1 2.6a3.6 3.6 0 0 1 1 2.6c0 2.6-1.6 3.7-4 4 .4.4.7 1 .7 2.1V20"/></svg>
+                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d='M9 20v-3c-3 .6-3.7-1.4-3.7-1.4-.3-.8-.8-1.3-.8-1.3-1-.6 0-.6 0-.6.9.1 1.4.9 1.4.9.9 1.4 2.3 1 2.9.8.1-.7.4-1.1.7-1.4-2.4-.3-4-1.4-4-4a3.6 3.6 0 0 1 1-2.6c-.1-.3-.4-1.3.1-2.6 0 0 .9-.3 2.9 1a6.8 6.8 0 0 1 3.4 0c2-1.3 2.9-1 2.9-1 .5 1.3.2 2.3.1 2.6a3.6 3.6 0 0 1 1 2.6c0 2.6-1.6 3.7-4 4 .4.4.7 1 .7 2.1V20'/></svg>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block text-[14px] font-medium">GitHub</span>
                     <span class="block truncate text-[12px] text-[var(--muted)]">UmidYul</span>
                   </span>
                 </a>
+                <button type="button" class="link-copy" data-copy="https://github.com/UmidYul" aria-label="Скопировать: GitHub">
+                  <span class="swap h-[14px] w-[14px]">
+                    <svg class="ic-copy h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5"/></svg>
+                    <svg class="on-copy h-[14px] w-[14px] text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+                  </span>
+                </button>
+              </div>
 
-                <a class="link rise" href="https://www.instagram.com/yuldashev_u07/" style="--tint:#D98CB3; --d:730ms">
+              <div class="link-wrap rise" style="--tint:#D98CB3; --d:730ms">
+                <a class="link" href="https://www.instagram.com/yuldashev_u07/">
                   <span class="link-ico">
-                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg>
+                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x='3.5' y='3.5' width='17' height='17' rx='5'/><circle cx='12' cy='12' r='4'/><circle cx='17' cy='7' r='1'/></svg>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block text-[14px] font-medium">Instagram</span>
                     <span class="block truncate text-[12px] text-[var(--muted)]">@yuldashev_u07</span>
                   </span>
                 </a>
+                <button type="button" class="link-copy" data-copy="@yuldashev_u07" aria-label="Скопировать: Instagram">
+                  <span class="swap h-[14px] w-[14px]">
+                    <svg class="ic-copy h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5"/></svg>
+                    <svg class="on-copy h-[14px] w-[14px] text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+                  </span>
+                </button>
+              </div>
 
-                <a class="link rise" href="https://www.linkedin.com/in/umid-yuldashev-yuldashev-623327379/" style="--tint:#6FA8D6; --d:780ms">
+              <div class="link-wrap rise" style="--tint:#6FA8D6; --d:780ms">
+                <a class="link" href="https://www.linkedin.com/in/umid-yuldashev-yuldashev-623327379/">
                   <span class="link-ico">
-                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 11v6M8 8v.5"/><path d="M12 17v-3.5a1.8 1.8 0 0 1 3.6 0V17M12 11v6"/></svg>
+                    <svg class="h-[17px] w-[17px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x='3.5' y='3.5' width='17' height='17' rx='3'/><path d='M8 11v6M8 8v.5'/><path d='M12 17v-3.5a1.8 1.8 0 0 1 3.6 0V17M12 11v6'/></svg>
                   </span>
                   <span class="min-w-0 flex-1">
                     <span class="block text-[14px] font-medium">LinkedIn</span>
                     <span data-i18n="liHint" class="block truncate text-[12px] text-[var(--muted)]">Профиль</span>
                   </span>
                 </a>
-
+                <button type="button" class="link-copy" data-copy="https://www.linkedin.com/in/umid-yuldashev-yuldashev-623327379/" aria-label="Скопировать: LinkedIn">
+                  <span class="swap h-[14px] w-[14px]">
+                    <svg class="ic-copy h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 6.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h.5"/></svg>
+                    <svg class="on-copy h-[14px] w-[14px] text-[var(--accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
+                  </span>
+                </button>
+              </div>
               </div>
             </div>
 
             <!-- О СЕБЕ -->
             <div id="p-a" class="panel" role="tabpanel" aria-labelledby="tab-a" tabindex="0" aria-hidden="true" inert>
               <div class="px-1 pt-1">
-                <p data-i18n="about1" class="text-[15px] leading-relaxed">Живу и работаю в Фергане.</p>
-                <p data-i18n="about2" class="mt-2.5 text-[15px] leading-relaxed text-[var(--muted)]">Люблю задачи, где нужно разобраться с нуля и собрать всё самому.</p>
-                <dl class="mt-5 grid grid-cols-2 gap-x-4 gap-y-4 border-t border-[var(--s-hair)] pt-4">
+                <dl class="grid grid-cols-2 gap-x-4 gap-y-5">
                   <div>
                     <dt class="text-[11px] font-medium uppercase tracking-[.09em] text-[var(--muted)]">IELTS</dt>
                     <dd class="mt-1 text-[17px] font-semibold tabular-nums text-[var(--accent)]">7.0</dd>
@@ -217,9 +268,9 @@
             <span class="qr-mark tr" aria-hidden="true"></span>
             <span class="qr-mark bl" aria-hidden="true"></span>
             <span class="qr-mark br" aria-hidden="true"></span>
-            <div class="qr-frame rounded-[24px] p-5">
+            <button type="button" id="qr-zoom" class="qr-frame rounded-[24px] p-5" aria-label="Показать код на весь экран">
               <div id="qr" class="aspect-square w-full"></div>
-            </div>
+            </button>
           </div>
 
           <p data-i18n="scan" class="mt-7 text-center text-[13px] text-[var(--muted)]">Наведите камеру на код</p>
@@ -243,6 +294,18 @@
 
   <p class="reveal mt-5 text-center text-[12px] text-[var(--muted)]">2026 © Умид Йулдашев</p>
 </main>
+
+<div id="qr-show" class="qr-show" hidden>
+  <button type="button" id="qr-show-close" class="qr-show-close" aria-label="Закрыть">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div id="qr-show-code" class="qr-show-code"></div>
+  <div class="text-center">
+    <p class="qr-show-name">Умид Йулдашев</p>
+    <p id="qr-show-url" class="qr-show-url">—</p>
+  </div>
+  <p id="qr-show-hint" class="qr-show-hint">Экран не погаснет, пока код открыт</p>
+</div>
 
 <div id="toast" role="status" aria-live="polite"
   class="chip pointer-events-none fixed bottom-7 left-1/2 z-30 -translate-x-1/2 translate-y-2 rounded-full px-4 py-2.5 text-[13px] font-medium opacity-0 transition-all duration-300"></div>
@@ -290,10 +353,11 @@
     ru: {
       name: 'Умид Йулдашев', role: 'Создаю цифровые продукты', place: 'Фергана, Узбекистан',
       tabContacts: 'Контакты', tabAbout: 'О себе', liHint: 'Профиль',
-      about1: 'Живу и работаю в Фергане.',
-      about2: 'Люблю задачи, где нужно разобраться с нуля и собрать всё самому.',
       fieldLabel: 'Направление', stackLabel: 'Стек', cityLabel: 'Город', cityValue: 'Фергана',
       save: 'Сохранить контакт', scan: 'Наведите камеру на код',
+      statusOn: 'На связи', statusOff: 'Офлайн', copiedValue: 'Скопировано',
+      wxLabel: 'Погода в Фергане', wxHint: 'Экран не погаснет, пока код открыт',
+      qrZoom: 'Показать код на весь экран', qrShowClose: 'Закрыть',
       copied: 'Ссылка скопирована', failed: 'Не получилось', savedVcf: 'Контакт сохраняется',
       themeLabel: 'Сменить тему', shareLabel: 'Поделиться',
       qrOpen: 'Показать QR-код', qrClose: 'Вернуться к контактам', copyLabel: 'Скопировать ссылку',
@@ -302,10 +366,11 @@
     uz: {
       name: 'Umid Yuldashev', role: 'Raqamli mahsulotlar yarataman', place: 'Farg‘ona, O‘zbekiston',
       tabContacts: 'Kontaktlar', tabAbout: 'Men haqimda', liHint: 'Profil',
-      about1: 'Farg‘onada yashayman va ishlayman.',
-      about2: 'Noldan o‘rganib, hammasini o‘zim yig‘ish kerak bo‘lgan vazifalarni yaxshi ko‘raman.',
       fieldLabel: 'Yo‘nalish', stackLabel: 'Stek', cityLabel: 'Shahar', cityValue: 'Farg‘ona',
       save: 'Kontaktni saqlash', scan: 'Kamerani kodga qarating',
+      statusOn: 'Aloqada', statusOff: 'Oflayn', copiedValue: 'Nusxalandi',
+      wxLabel: 'Farg‘onada ob-havo', wxHint: 'Kod ochiq turganda ekran o‘chmaydi',
+      qrZoom: 'Kodni to‘liq ekranda ko‘rsatish', qrShowClose: 'Yopish',
       copied: 'Havola nusxalandi', failed: 'Bajarilmadi', savedVcf: 'Kontakt saqlanmoqda',
       themeLabel: 'Mavzuni almashtirish', shareLabel: 'Ulashish',
       qrOpen: 'QR-kodni ko‘rsatish', qrClose: 'Kontaktlarga qaytish', copyLabel: 'Havoladan nusxa olish',
@@ -314,16 +379,34 @@
     en: {
       name: 'Umid Yuldashev', role: 'I build digital products', place: 'Fergana, Uzbekistan',
       tabContacts: 'Contacts', tabAbout: 'About', liHint: 'Profile',
-      about1: 'I live and work in Fergana.',
-      about2: 'I like problems that make me figure things out and build them myself.',
       fieldLabel: 'Field', stackLabel: 'Stack', cityLabel: 'City', cityValue: 'Fergana',
       save: 'Save contact', scan: 'Scan to visit website',
+      statusOn: 'Available', statusOff: 'Away', copiedValue: 'Copied',
+      wxLabel: 'Weather in Fergana', wxHint: 'The screen stays awake while the code is open',
+      qrZoom: 'Show the code full screen', qrShowClose: 'Close',
       copied: 'Link copied', failed: 'Could not share', savedVcf: 'Saving contact',
       themeLabel: 'Switch theme', shareLabel: 'Share',
       qrOpen: 'Show QR code', qrClose: 'Back to contacts', copyLabel: 'Copy link',
       locale: 'en-GB', code: 'en'
     }
   };
+
+  /* Язык: сохранённый выбор важнее, иначе берём язык браузера.
+     Узбекский — uz, русский — ru, всё остальное — en. */
+  var LKEY = 'uy-lang';
+  var savedLang = null;
+  try { savedLang = localStorage.getItem(LKEY); } catch (e) {}
+
+  function detectLang() {
+    var list = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < list.length; i++) {
+      var l = String(list[i] || '').toLowerCase();
+      if (l.indexOf('uz') === 0) return 'uz';
+      if (l.indexOf('ru') === 0) return 'ru';
+      if (l.indexOf('en') === 0) return 'en';
+    }
+    return 'en';
+  }
 
   var current = 'ru';
   var langBtns = [].slice.call(document.querySelectorAll('.lang'));
@@ -364,6 +447,10 @@
     $('qr-open').setAttribute('aria-label', d.qrOpen);
     $('qr-close').setAttribute('aria-label', d.qrClose);
     $('copy').setAttribute('aria-label', d.copyLabel);
+    $('weather').setAttribute('aria-label', d.wxLabel);
+    $('qr-zoom').setAttribute('aria-label', d.qrZoom);
+    $('qr-show-close').setAttribute('aria-label', d.qrShowClose);
+    $('qr-show-hint').textContent = d.wxHint;
     document.querySelector('img[alt]').setAttribute('alt', d.name);
 
     paintLangs(animate);
@@ -372,7 +459,11 @@
   }
 
   langBtns.forEach(function (b) {
-    b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang'), true); });
+    b.addEventListener('click', function () {
+      var code = b.getAttribute('data-lang');
+      applyLang(code, true);
+      try { localStorage.setItem(LKEY, code); } catch (e) {}
+    });
   });
 
   /* ===================== БЕГУНКИ ===================== */
@@ -392,6 +483,24 @@
   /* ===================== ЧАСЫ ===================== */
 
   var clock = $('clock');
+  var statusEl = $('status');
+  var statusText = $('status-text');
+
+  /* Рабочее время по Фергане: с 9 до 19. Считается из часового пояса,
+     а не из времени посетителя, поэтому статус честный из любой точки. */
+  function paintStatus() {
+    var h;
+    try {
+      h = parseInt(new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Tashkent', hour: '2-digit', hour12: false
+      }).format(new Date()), 10);
+    } catch (e) { h = -1; }
+    if (h < 0) { statusEl.hidden = true; return; }
+    var on = h >= 9 && h < 19;
+    statusEl.classList.toggle('is-online', on);
+    statusEl.style.color = on ? 'var(--text)' : 'var(--muted)';
+    statusText.textContent = DICT[current][on ? 'statusOn' : 'statusOff'];
+  }
   function tick() {
     try {
       var t = new Intl.DateTimeFormat(DICT[current].locale, {
@@ -399,8 +508,73 @@
       }).format(new Date());
       clock.textContent = t;
     } catch (e) { clock.textContent = ''; }
+    paintStatus();
   }
   setInterval(tick, 15000);
+
+  /* ===================== ПОГОДА =====================
+     Open-Meteo: без ключа, с CORS, ответ около 400 байт.
+     Отказ сети не показываем — чип просто не появляется. */
+
+  var WX_LAT = 40.3864, WX_LON = 71.7864;
+  var wxBtn = $('weather'), wxIcon = $('weather-icon'), wxTemp = $('weather-temp');
+  var wxC = null, wxFahrenheit = false;
+
+  try { wxFahrenheit = localStorage.getItem('uy-wx') === 'f'; } catch (e) {}
+
+  /* коды WMO → картинка */
+  function wxShape(code, day) {
+    if (code === 0 || code === 1) return day ? 'sun' : 'moon';
+    if (code === 2 || code === 3) return 'cloud';
+    if (code === 45 || code === 48) return 'fog';
+    if (code >= 95) return 'storm';
+    if ((code >= 71 && code <= 77) || code === 85 || code === 86) return 'snow';
+    if ((code >= 51 && code <= 67) || (code >= 80 && code <= 82)) return 'rain';
+    return 'cloud';
+  }
+
+  var WX_SVG = {
+    sun: '<circle class="wx-core" cx="12" cy="12" r="4"/><g class="wx-rays"><path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></g>',
+    moon: '<path class="wx-core" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>',
+    cloud: '<g class="wx-cloud"><path d="M7 18h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.6-1A3.6 3.6 0 0 0 7 18Z"/></g>',
+    fog: '<g class="wx-cloud"><path d="M7 14h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.6-1A3.6 3.6 0 0 0 7 14Z"/></g><g class="wx-haze"><path d="M5 17.5h10M8 20.5h9"/></g>',
+    rain: '<g class="wx-cloud"><path d="M7 14h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.6-1A3.6 3.6 0 0 0 7 14Z"/></g><path class="wx-fall" style="animation-delay:0s" d="M9 17v2.4"/><path class="wx-fall" style="animation-delay:.5s" d="M12.5 17v2.4"/><path class="wx-fall" style="animation-delay:1s" d="M16 17v2.4"/>',
+    snow: '<g class="wx-cloud"><path d="M7 14h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.6-1A3.6 3.6 0 0 0 7 14Z"/></g><path class="wx-flake" style="animation-delay:0s" d="M9 18h.01"/><path class="wx-flake" style="animation-delay:1s" d="M12.5 18h.01"/><path class="wx-flake" style="animation-delay:2s" d="M16 18h.01"/>',
+    storm: '<g class="wx-cloud"><path d="M7 14h9.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.6-1A3.6 3.6 0 0 0 7 14Z"/></g><path class="wx-bolt" d="M13 16l-2.6 3.4h3L11 23"/>'
+  };
+
+  function paintWeather() {
+    if (wxC === null) return;
+    var t = wxFahrenheit ? (wxC * 9 / 5 + 32) : wxC;
+    wxTemp.textContent = Math.round(t) + '°' + (wxFahrenheit ? 'F' : 'C');
+  }
+
+  function loadWeather() {
+    var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + WX_LAT + '&longitude=' + WX_LON +
+              '&current=temperature_2m,weather_code,is_day&timezone=Asia%2FTashkent';
+    fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      var cur = j && j.current;
+      if (!cur || typeof cur.temperature_2m !== 'number') throw new Error('нет данных');
+      wxC = cur.temperature_2m;
+      var shape = wxShape(cur.weather_code, cur.is_day === 1);
+      wxIcon.innerHTML = '<svg class="wx" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + (WX_SVG[shape] || WX_SVG.cloud) + '</svg>';
+      paintWeather();
+      wxBtn.hidden = false;
+    }).catch(function () { /* нет сети или отказ — чип остаётся скрытым */ });
+  }
+
+  wxBtn.addEventListener('click', function () {
+    wxFahrenheit = !wxFahrenheit;
+    try { localStorage.setItem('uy-wx', wxFahrenheit ? 'f' : 'c'); } catch (e) {}
+    paintWeather();
+  });
+
+  loadWeather();
+  setInterval(loadWeather, 15 * 60 * 1000);
 
   /* ===================== ВКЛАДКИ ===================== */
 
@@ -449,7 +623,7 @@
 
   var links = $('links');
   var linksHl = $('links-hl');
-  var linkEls = [].slice.call(links.querySelectorAll('.link'));
+  var linkEls = [].slice.call(links.querySelectorAll('.link-wrap'));
 
   function highlight(el) {
     linksHl.style.height = el.offsetHeight + 'px';
@@ -460,8 +634,8 @@
 
   linkEls.forEach(function (el) {
     el.addEventListener('pointerenter', function () { highlight(el); });
-    el.addEventListener('focus', function () { highlight(el); });
-    el.addEventListener('blur', unhighlight);
+    el.addEventListener('focusin', function () { highlight(el); });
+    el.addEventListener('focusout', unhighlight);
   });
   links.addEventListener('pointerleave', unhighlight);
 
@@ -512,6 +686,9 @@
     return (getComputedStyle(html).getPropertyValue('--qr-ink') || '').trim() || '#F2EFE9';
   }
 
+  /* mount может быть как элементом, так и обычным объектом с полем
+     innerHTML — это нужно, чтобы собрать разметку кода для оверлея,
+     не трогая тот экземпляр, что лежит на обороте карточки. */
   function renderQR(text, mount) {
     if (typeof window.makeQR !== 'function') return false;
     var m;
@@ -577,6 +754,20 @@
     copyText(siteUrl()).then(function () { say(d.copied); }, function () { say(d.failed); });
   });
 
+  /* Копирование значения прямо из строки контакта. Клик по кнопке не
+     должен открывать ссылку, поэтому гасим событие до всплытия. */
+  [].slice.call(document.querySelectorAll('.link-copy')).forEach(function (btn) {
+    btn.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      var value = btn.getAttribute('data-copy') || '';
+      copyText(value).then(function () {
+        flash(btn);
+        say(DICT[current].copiedValue);
+      }, function () { say(DICT[current].failed); });
+    });
+  });
+
   var copyBtn = $('copy');
   copyBtn.addEventListener('click', function () {
     var d = DICT[current];
@@ -596,12 +787,25 @@
     el.setAttribute('aria-hidden', on ? 'true' : 'false');
   }
 
-  function setFlipped(on) {
-    if (on && !qrReady) {
-      var url = siteUrl();
-      qrReady = renderQR(url, $('qr'));
-      $('qr-url').textContent = qrReady ? prettyUrl(url) : prettyUrl(FALLBACK_URL);
+  /* Код рисуется лениво — при первом перевороте. Но на печать уходит и
+     обратная сторона, поэтому перед печатью его надо успеть собрать. */
+  function ensureQR() {
+    if (qrReady) return;
+    var url = siteUrl();
+    qrReady = renderQR(url, $('qr'));
+    $('qr-url').textContent = qrReady ? prettyUrl(url) : prettyUrl(FALLBACK_URL);
+  }
+
+  window.addEventListener('beforeprint', ensureQR);
+  if (window.matchMedia) {
+    var mqPrint = window.matchMedia('print');
+    if (mqPrint.addEventListener) {
+      mqPrint.addEventListener('change', function (e) { if (e.matches) ensureQR(); });
     }
+  }
+
+  function setFlipped(on) {
+    if (on) ensureQR();
     flip.classList.toggle('is-back', on);
     btnOpen.setAttribute('aria-expanded', on ? 'true' : 'false');
     setInert(faceBack, !on);
@@ -618,7 +822,9 @@
   btnOpen.addEventListener('click', function () { setFlipped(true); });
   btnClose.addEventListener('click', function () { setFlipped(false); });
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape' && flip.classList.contains('is-back')) setFlipped(false);
+    if (ev.key !== 'Escape') return;
+    if (!$('qr-show').hidden) { $('qr-show-close').click(); return; }
+    if (flip.classList.contains('is-back')) setFlipped(false);
   });
 
   /* Снимаем класс появления, когда анимация отыграла.
@@ -630,6 +836,74 @@
     if (ev.animationName === 'txt') ev.target.classList.remove('txt-in');
   }, true);
 
+  /* ===================== РЕЖИМ ПОКАЗА QR =====================
+     Код на весь экран, чёрным по белому независимо от темы: этот
+     экран нужен ровно для того, чтобы его быстро сняли чужим
+     телефоном, и тут важен контраст, а не оформление.
+     Wake Lock держит экран включённым, пока код открыт. */
+
+  var qrShow = $('qr-show');
+  var qrShowCode = $('qr-show-code');
+  var qrZoom = $('qr-zoom');
+  var wakeLock = null;
+  var lastFocus = null;
+
+  function lockScreen() {
+    if (!('wakeLock' in navigator)) return;
+    navigator.wakeLock.request('screen').then(function (l) {
+      wakeLock = l;
+      l.addEventListener('release', function () { wakeLock = null; });
+    }).catch(function () { /* отказ или нет поддержки — не беда */ });
+  }
+
+  function unlockScreen() {
+    if (!wakeLock) return;
+    var l = wakeLock;
+    wakeLock = null;
+    l.release().catch(function () {});
+  }
+
+  /* после сворачивания вкладки блокировка снимается системой —
+     возвращаем её, когда страница снова видима */
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && !qrShow.hidden) lockScreen();
+  });
+
+  function openShow() {
+    ensureQR();
+    var url = siteUrl();
+    if (typeof window.makeQR === 'function') {
+      var tmp = {};
+      if (renderQR(url, tmp)) qrShowCode.innerHTML = tmp.innerHTML;
+    }
+    $('qr-show-url').textContent = prettyUrl(url);
+    lastFocus = document.activeElement;
+    qrShow.hidden = false;
+    lockScreen();
+    $('qr-show-close').focus();
+  }
+
+  function closeShow() {
+    qrShow.hidden = true;
+    unlockScreen();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  qrZoom.addEventListener('click', openShow);
+  $('qr-show-close').addEventListener('click', closeShow);
+  qrShow.addEventListener('click', function (ev) {
+    if (ev.target === qrShow) closeShow();
+  });
+
+  /* ===================== ОФЛАЙН =====================
+     Воркер регистрируется только на http(s): с диска он не ставится. */
+
+  if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+
   /* ===================== СТАРТ ===================== */
 
   function layout() {
@@ -638,7 +912,7 @@
     syncPanels();
   }
 
-  applyLang('ru', false);
+  applyLang(savedLang && DICT[savedLang] ? savedLang : detectLang(), false);
   tick();
   layout();
 

@@ -239,7 +239,28 @@
   }
 
   /* уголки вокруг кода — рамка прицела, а не украшение */
-  .qr-stage { position: relative; }
+  /* ===== СТАТУС ДОСТУПНОСТИ ===== */
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+  box-shadow: 0 0 0 3px rgba(140, 136, 127, .14);
+  transition: background-color .45s ease, box-shadow .45s ease;
+}
+
+.is-online .status-dot {
+  background: #5BBD7E;
+  box-shadow: 0 0 0 3px rgba(91, 189, 126, .18);
+}
+
+.theme-light .is-online .status-dot {
+  background: #3E9E63;
+  box-shadow: 0 0 0 3px rgba(62, 158, 99, .16);
+}
+
+.qr-stage { position: relative; }
   .qr-mark {
     position: absolute;
     width: 15px;
@@ -380,14 +401,18 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 13px 14px;
+  /* справа оставлено место под кнопку копирования, иначе длинная почта
+     уезжает под неё */
+  padding: 13px 44px 13px 14px;
   border-radius: 14px;
   color: inherit;
   text-decoration: none;
   transition: transform .34s cubic-bezier(.2, .7, .2, 1), color .3s ease;
 }
 
-.link + .link::before {
+.link-wrap { position: relative; }
+
+.link-wrap + .link-wrap::before {
   content: "";
   position: absolute;
   top: 0;
@@ -400,6 +425,40 @@
 
 .link:hover { transform: translateX(3px); }
 .link:active { transform: translateX(3px) scale(.985); }
+
+/* Кнопка копирования — сосед ссылки, а не её потомок: кнопка внутри
+   ссылки это невалидная разметка, и клик всё равно уходил бы по ссылке. */
+.link-copy {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  border-radius: 9px;
+  color: var(--muted);
+  opacity: 0;
+  transform: scale(.85);
+  transition: opacity .25s ease, transform .3s cubic-bezier(.3, 1.3, .4, 1), color .25s ease, background-color .25s ease;
+}
+
+.link-wrap:hover .link-copy,
+.link-copy:focus-visible,
+.link-copy.is-copied {
+  opacity: 1;
+  transform: none;
+}
+
+.link-copy:hover { color: var(--accent); background-color: var(--s-fill-2); }
+.link-copy:active { transform: scale(.82); }
+
+/* на тач-экранах наведения нет — показываем всегда, но приглушённо */
+@media (hover: none) {
+  .link-copy { opacity: .55; transform: none; }
+}
 
 .link-ico {
   display: grid;
@@ -546,4 +605,182 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .pool, .pool-2 { transform: none; }
   *, *::before, *::after { transition-duration: .01ms !important; transition-delay: 0ms !important; }
+}
+
+/* =========================================================
+   ПОГОДА
+   Иконка рисуется скриптом по коду WMO, анимация — чистый CSS.
+   Движение тихое и зацикленное: это индикатор, а не аттракцион.
+   ========================================================= */
+
+.wx { display: block; width: 18px; height: 18px; color: var(--muted); transition: color .4s ease; }
+#weather:hover .wx { color: var(--accent); }
+
+.wx-rays { transform-origin: 12px 12px; animation: wx-spin 14s linear infinite; }
+@keyframes wx-spin { to { transform: rotate(360deg); } }
+
+.wx-core { transform-origin: 12px 12px; animation: wx-pulse 3.4s ease-in-out infinite; }
+@keyframes wx-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }
+
+.wx-cloud { animation: wx-drift 5s ease-in-out infinite; }
+@keyframes wx-drift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(1.1px); } }
+
+.wx-fall { animation: wx-fall 1.6s linear infinite; }
+@keyframes wx-fall {
+  0%   { opacity: 0; transform: translateY(-2.5px); }
+  25%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(4.5px); }
+}
+
+.wx-flake { animation: wx-flake 3.2s ease-in-out infinite; }
+@keyframes wx-flake {
+  0%   { opacity: 0; transform: translate(0, -2px); }
+  30%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(1.4px, 4.5px); }
+}
+
+.wx-bolt { animation: wx-flash 2.6s steps(1, end) infinite; }
+@keyframes wx-flash {
+  0%, 62%, 70%, 78%, 100% { opacity: 1; }
+  66%, 74% { opacity: .25; }
+}
+
+.wx-haze { animation: wx-haze 4.2s ease-in-out infinite; }
+@keyframes wx-haze { 0%, 100% { transform: translateX(-1px); } 50% { transform: translateX(1px); } }
+
+/* =========================================================
+   РЕЖИМ ПОКАЗА QR
+   Белый фон и чёрные модули независимо от темы: этот экран
+   существует ровно для одного — чтобы его быстро отсканировали
+   с чужого телефона, и тут важна не эстетика, а контраст.
+   ========================================================= */
+
+.qr-show {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 28px;
+  background: #FFFFFF;
+  color: #141414;
+  cursor: auto;
+  animation: qr-show-in .34s cubic-bezier(.2, .72, .2, 1) both;
+}
+
+@keyframes qr-show-in {
+  from { opacity: 0; transform: scale(1.02); }
+  to   { opacity: 1; transform: none; }
+}
+
+.qr-show-code {
+  width: min(78vw, 56vh, 420px);
+  aspect-ratio: 1;
+}
+.qr-show-code svg { display: block; width: 100%; height: 100%; }
+.qr-show-code path { fill: #000000; }
+
+.qr-show-name { font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
+.qr-show-url  { margin-top: 4px; font-size: 14px; color: #5A5A5A; }
+
+.qr-show-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 20, 20, .14);
+  background: #FFFFFF;
+  color: #141414;
+  cursor: auto;
+  transition: background-color .25s ease, transform .25s ease;
+}
+.qr-show-close:hover { background: #F2F2F2; }
+.qr-show-close:active { transform: scale(.92); }
+
+.qr-show-hint { font-size: 12px; color: #8A8A8A; }
+
+/* Кнопка-обёртка самого кода на обороте. Padding тут НЕ задаём:
+   правило лежит вне слоёв и перебило бы Tailwind-класс p-5, а это
+   поля вокруг кода. */
+.qr-frame { display: block; width: 100%; text-align: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wx-rays, .wx-core, .wx-cloud, .wx-fall, .wx-flake, .wx-bolt, .wx-haze { animation: none; }
+  .qr-show { animation: none; }
+}
+
+
+/* =========================================================
+   ПЕЧАТЬ
+   Стекло, тени и размытия на бумаге превращаются в грязь, поэтому
+   на печать уходит плоская карточка: имя, контакты, сетка «О себе»
+   и QR. Обратная сторона разворачивается в поток — без переворота
+   и без backface-visibility, иначе код просто не напечатается.
+   ========================================================= */
+
+@media print {
+  @page { margin: 14mm; }
+
+  html, body {
+    height: auto;
+    background: #fff !important;
+    color: #000 !important;
+    cursor: auto !important;
+  }
+
+  .noise, .pool, .pool-2, header, #qr-open, #qr-close, #share, #vcf,
+  .pill, .links-hl, .link-copy, .qr-mark, .ab, .qr-show { display: none !important; }
+
+  main { max-width: none !important; padding: 0 !important; display: block !important; }
+
+  .flip { perspective: none; }
+  .flip-inner { transform: none !important; }
+
+  .face {
+    position: static !important;
+    transform: none !important;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    display: block !important;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    box-shadow: none !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    break-inside: avoid;
+  }
+
+  .face-back { margin-top: 10mm; }
+  .glass::before, .glass::after { display: none !important; }
+
+  /* обе вкладки на бумаге видны сразу */
+  .panels { height: auto !important; overflow: visible !important; }
+  .panel {
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    margin-top: 6mm;
+  }
+
+  .surf, .chip { background: none !important; box-shadow: none !important; }
+  .link { transform: none !important; }
+  .link-ico { background: none !important; box-shadow: none !important; border: 1px solid #ddd; }
+
+  .rise, .fade-in, .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+  /* модули кода на бумаге всегда тёмные, иначе в тёмной теме они белые */
+  #qr path { fill: #000 !important; }
+  #qr-wrap { max-width: 44mm !important; }
+  .qr-frame { background: none !important; box-shadow: none !important; padding: 0 !important; }
+
+  a { text-decoration: none !important; color: #000 !important; }
 }
