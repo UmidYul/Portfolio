@@ -239,7 +239,39 @@
   }
 
   /* уголки вокруг кода — рамка прицела, а не украшение */
-  /* ===== СТАТУС ДОСТУПНОСТИ ===== */
+  /* ===== МЕЛКИЕ ЧИПЫ: СТАТУС И ПОГОДА =====
+   Жёсткая высота и запрет переноса: иначе на узком экране иконка
+   погоды уезжала на строку выше температуры, и содержимое не
+   попадало в свою подложку. */
+
+.chip-mini {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+button.chip-mini { cursor: var(--cur-act); }
+button.chip-mini:active { transform: scale(.95); }
+
+/* иконка погоды — фиксированный квадрат, чтобы высота чипа не плавала */
+.chip-ico {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.chip-ico .wx { width: 100%; height: 100%; }
+
+/* ===== СТАТУС ДОСТУПНОСТИ ===== */
 
 .status-dot {
   width: 6px;
@@ -333,15 +365,20 @@
 }
 
 /* ===== ПЕРЕВОРОТ =====
-   Лицевая сторона в потоке задаёт высоту, обратная растянута по ней
-   через inset. Высота при перевороте не меняется физически. */
+   Раньше высоту задавала лицевая сторона, а обратная растягивалась по
+   ней через inset. На телефоне это давало полкарточки пустоты: список
+   контактов высокий, а на обороте только код. Теперь обе стороны
+   выведены из потока, высоту контейнера ставит скрипт по активной
+   стороне, и она перетекает вместе с переворотом. */
 
 .flip { perspective: 1600px; }
 
 .flip-inner {
   position: relative;
+  min-height: 320px;              /* только пока скрипт не отработал */
   transform-style: preserve-3d;
-  transition: transform .64s cubic-bezier(.22, .68, 0, 1);
+  transition: transform .64s cubic-bezier(.22, .68, 0, 1),
+              height .44s cubic-bezier(.3, .8, .25, 1);
   will-change: transform;
 }
 
@@ -354,16 +391,16 @@
   transform-style: flat;
 }
 
-.face-front { position: relative; transform: rotateY(0deg); }
-
+.face-front,
 .face-back {
   position: absolute;
-  inset: 0;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
+
+.face-front { transform: rotateY(0deg); }
+.face-back { transform: rotateY(180deg); }
 
 /* ===== ПАНЕЛИ ВКЛАДОК — высота перетекает ===== */
 
@@ -613,7 +650,7 @@
    Движение тихое и зацикленное: это индикатор, а не аттракцион.
    ========================================================= */
 
-.wx { display: block; width: 18px; height: 18px; color: var(--muted); transition: color .4s ease; }
+.wx { display: block; color: var(--muted); transition: color .4s ease; }
 #weather:hover .wx { color: var(--accent); }
 
 .wx-rays { transform-origin: 12px 12px; animation: wx-spin 14s linear infinite; }
@@ -661,31 +698,33 @@
   inset: 0;
   z-index: 100;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22px;
-  padding: 28px;
-  background: #FFFFFF;
-  color: #141414;
-  cursor: auto;
+  padding: 24px;
+  color: var(--text);
+  -webkit-backdrop-filter: blur(26px) saturate(165%);
+  backdrop-filter: blur(26px) saturate(165%);
   animation: qr-show-in .34s cubic-bezier(.2, .72, .2, 1) both;
 }
 
+.theme-dark  .qr-show { background: rgba(20, 20, 20, .86); }
+.theme-light .qr-show { background: rgba(237, 234, 228, .9); }
+
 @keyframes qr-show-in {
-  from { opacity: 0; transform: scale(1.02); }
+  from { opacity: 0; transform: scale(1.015); }
   to   { opacity: 1; transform: none; }
 }
 
-.qr-show-code {
-  width: min(78vw, 56vh, 420px);
-  aspect-ratio: 1;
-}
-.qr-show-code svg { display: block; width: 100%; height: 100%; }
-.qr-show-code path { fill: #000000; }
+.qr-show-inner { width: 100%; max-width: 340px; text-align: center; }
 
-.qr-show-name { font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
-.qr-show-url  { margin-top: 4px; font-size: 14px; color: #5A5A5A; }
+/* рамка кода повторяет оборот карточки: то же стекло и те же уголки */
+.qr-show-stage { width: min(74vw, 46vh, 300px); margin: 0 auto; }
+.qr-show-code { aspect-ratio: 1; width: 100%; }
+.qr-show-code svg { display: block; width: 100%; height: 100%; }
+
+.qr-show-name { margin-top: 30px; font-size: 17px; font-weight: 600; letter-spacing: -.02em; }
+.qr-show-url  { margin-top: 5px; font-size: 13px; color: var(--muted); }
+.qr-show-hint { margin-top: 18px; font-size: 11px; color: var(--muted); opacity: .8; }
 
 .qr-show-close {
   position: absolute;
@@ -696,16 +735,11 @@
   width: 42px;
   height: 42px;
   border-radius: 999px;
-  border: 1px solid rgba(20, 20, 20, .14);
-  background: #FFFFFF;
-  color: #141414;
-  cursor: auto;
-  transition: background-color .25s ease, transform .25s ease;
+  color: var(--text);
+  transition: transform .25s ease, background-color .25s ease;
 }
-.qr-show-close:hover { background: #F2F2F2; }
-.qr-show-close:active { transform: scale(.92); }
-
-.qr-show-hint { font-size: 12px; color: #8A8A8A; }
+.qr-show-close:hover { transform: rotate(90deg); }
+.qr-show-close:active { transform: scale(.9); }
 
 /* Кнопка-обёртка самого кода на обороте. Padding тут НЕ задаём:
    правило лежит вне слоёв и перебило бы Tailwind-класс p-5, а это

@@ -74,13 +74,13 @@
           <p data-i18n="role" class="rise mt-1.5 text-[15px] leading-snug text-[var(--muted)]" style="--d:360ms">Создаю цифровые продукты</p>
 
           <div class="rise mt-3 flex flex-wrap items-center gap-2" style="--d:400ms">
-            <span id="status" class="surf inline-flex items-center gap-1.5 rounded-full py-1 pl-2 pr-2.5 text-[11px] font-medium text-[var(--muted)]">
+            <span id="status" class="chip-mini surf">
               <span class="status-dot" aria-hidden="true"></span>
               <span id="status-text">—</span>
             </span>
             <button id="weather" type="button" hidden
-              class="surf inline-flex items-center gap-1.5 rounded-full py-1 pl-1.5 pr-2.5 text-[11px] font-medium text-[var(--muted)] transition-all duration-300 hover:text-[var(--text)] active:scale-95">
-              <span id="weather-icon" class="grid place-items-center" aria-hidden="true"></span>
+              class="chip-mini surf transition-colors duration-300 hover:text-[var(--text)]">
+              <span id="weather-icon" class="chip-ico" aria-hidden="true"></span>
               <span id="weather-temp" class="tabular-nums">—</span>
             </button>
           </div>
@@ -252,18 +252,21 @@
           <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
         </button>
 
-        <div class="absolute left-5 top-5 z-10 flex items-center gap-2.5">
-          <img src="avatar.jpg" alt="" width="640" height="640" loading="lazy"
-            class="h-9 w-9 flex-none rounded-full object-cover ring-1 ring-[var(--s-line)]">
-          <span class="min-w-0 text-left">
-            <span data-i18n="name" class="block truncate text-[13px] font-semibold leading-tight tracking-[-.01em]">Умид Йулдашев</span>
-            <span class="block truncate text-[11px] leading-tight text-[var(--muted)]">@yuldashev_umid</span>
-          </span>
-        </div>
+        <div class="px-6 pb-7 pt-5">
 
-        <div class="px-6 py-7">
+          <!-- в потоке, а не absolute: карточка теперь сжимается по
+               содержимому, и абсолютный блок налезал бы на код.
+               pr-12 — место под крестик в углу. -->
+          <div class="flex items-center gap-2.5 pr-12">
+            <img src="avatar.jpg" alt="" width="640" height="640" loading="lazy"
+              class="h-9 w-9 flex-none rounded-full object-cover ring-1 ring-[var(--s-line)]">
+            <span class="min-w-0 text-left">
+              <span data-i18n="name" class="block truncate text-[13px] font-semibold leading-tight tracking-[-.01em]">Умид Йулдашев</span>
+              <span class="block truncate text-[11px] leading-tight text-[var(--muted)]">@yuldashev_umid</span>
+            </span>
+          </div>
 
-          <div id="qr-wrap" class="qr-stage mx-auto w-full max-w-[216px]">
+          <div id="qr-wrap" class="qr-stage mx-auto mt-7 w-full max-w-[216px]">
             <span class="qr-mark tl" aria-hidden="true"></span>
             <span class="qr-mark tr" aria-hidden="true"></span>
             <span class="qr-mark bl" aria-hidden="true"></span>
@@ -296,15 +299,24 @@
 </main>
 
 <div id="qr-show" class="qr-show" hidden>
-  <button type="button" id="qr-show-close" class="qr-show-close" aria-label="Закрыть">
+  <button type="button" id="qr-show-close" class="qr-show-close surf" aria-label="Закрыть">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
   </button>
-  <div id="qr-show-code" class="qr-show-code"></div>
-  <div class="text-center">
-    <p class="qr-show-name">Умид Йулдашев</p>
+
+  <div class="qr-show-inner">
+    <div class="qr-stage qr-show-stage">
+      <span class="qr-mark tl" aria-hidden="true"></span>
+      <span class="qr-mark tr" aria-hidden="true"></span>
+      <span class="qr-mark bl" aria-hidden="true"></span>
+      <span class="qr-mark br" aria-hidden="true"></span>
+      <div class="qr-frame rounded-[28px] p-6">
+        <div id="qr-show-code" class="qr-show-code"></div>
+      </div>
+    </div>
+    <p data-i18n="name" class="qr-show-name">Умид Йулдашев</p>
     <p id="qr-show-url" class="qr-show-url">—</p>
+    <p id="qr-show-hint" class="qr-show-hint">Экран не погаснет, пока код открыт</p>
   </div>
-  <p id="qr-show-hint" class="qr-show-hint">Экран не погаснет, пока код открыт</p>
 </div>
 
 <div id="toast" role="status" aria-live="polite"
@@ -341,6 +353,7 @@
   $('theme').addEventListener('click', function () {
     setTheme(!html.classList.contains('theme-dark'));
     if (qrReady) renderQR(siteUrl(), $('qr'));
+    if (!$('qr-show').hidden) paintShowCode();
     if (calm) return;
     themeIcon.classList.remove('spin');
     void themeIcon.offsetWidth;
@@ -780,6 +793,21 @@
   /* ===================== ПЕРЕВОРОТ ===================== */
 
   var flip = $('flip'), faceBack = $('face-back'), btnOpen = $('qr-open'), btnClose = $('qr-close');
+  var flipInner = flip.querySelector('.flip-inner');
+
+  /* Высоту контейнера задаёт та сторона, что сейчас видна. Обе стороны
+     выведены из потока, поэтому без этого контейнер схлопнулся бы. */
+  function syncFlipHeight() {
+    var face = flip.classList.contains('is-back') ? faceBack : card;
+    var h = face.offsetHeight;
+    if (h) flipInner.style.height = h + 'px';
+  }
+
+  if (window.ResizeObserver) {
+    var flipRo = new ResizeObserver(function () { syncFlipHeight(); });
+    flipRo.observe(card);
+    flipRo.observe(faceBack);
+  }
   var qrWrap = $('qr-wrap'), qrReady = false;
 
   function setInert(el, on) {
@@ -807,6 +835,7 @@
   function setFlipped(on) {
     if (on) ensureQR();
     flip.classList.toggle('is-back', on);
+    syncFlipHeight();
     btnOpen.setAttribute('aria-expanded', on ? 'true' : 'false');
     setInert(faceBack, !on);
     setInert(card, on);
@@ -869,13 +898,15 @@
     if (document.visibilityState === 'visible' && !qrShow.hidden) lockScreen();
   });
 
+  function paintShowCode() {
+    var tmp = {};
+    if (renderQR(siteUrl(), tmp)) qrShowCode.innerHTML = tmp.innerHTML;
+  }
+
   function openShow() {
     ensureQR();
     var url = siteUrl();
-    if (typeof window.makeQR === 'function') {
-      var tmp = {};
-      if (renderQR(url, tmp)) qrShowCode.innerHTML = tmp.innerHTML;
-    }
+    paintShowCode();
     $('qr-show-url').textContent = prettyUrl(url);
     lastFocus = document.activeElement;
     qrShow.hidden = false;
@@ -910,13 +941,14 @@
     paintLangs(false);
     select(0, false);
     syncPanels();
+    syncFlipHeight();
   }
 
   applyLang(savedLang && DICT[savedLang] ? savedLang : detectLang(), false);
   tick();
   layout();
 
-  window.addEventListener('resize', syncPanels);
+  window.addEventListener('resize', function () { syncPanels(); syncFlipHeight(); });
 
   /* шрифты меняют метрику — после их загрузки бегунки пересчитываем */
   if (document.fonts && document.fonts.ready) {
