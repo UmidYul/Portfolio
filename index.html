@@ -71,7 +71,7 @@
             style="--d:230ms">
 
           <h1 data-i18n="name" class="rise mt-5 text-[30px] font-semibold leading-[1.08] tracking-[-.03em]" style="--d:300ms">Умид Йулдашев</h1>
-          <p data-i18n="role" class="rise mt-1.5 text-[15px] leading-snug text-[var(--muted)]" style="--d:360ms">Создаю цифровые продукты</p>
+          <p data-i18n="role" class="rise mt-1.5 text-[15px] leading-snug text-[var(--muted)]" style="--d:360ms">Perhaps I belong to another century.</p>
 
           <div class="rise mt-3 flex flex-wrap items-center gap-2" style="--d:400ms">
             <span id="status" class="chip-mini surf">
@@ -350,7 +350,15 @@
   }
 
   var themeIcon = $('theme-icon');
+  var themeTimer = null;
   $('theme').addEventListener('click', function () {
+    /* Глобальные переходы включаются ТОЛЬКО на время смены темы.
+       Раньше правило висело на «*» постоянно: сотни элементов с
+       переходом по box-shadow — это заметный налог на каждый кадр. */
+    html.classList.add('theming');
+    clearTimeout(themeTimer);
+    themeTimer = setTimeout(function () { html.classList.remove('theming'); }, 700);
+
     setTheme(!html.classList.contains('theme-dark'));
     if (qrReady) renderQR(siteUrl(), $('qr'));
     if (!$('qr-show').hidden) paintShowCode();
@@ -364,7 +372,7 @@
 
   var DICT = {
     ru: {
-      name: 'Умид Йулдашев', role: 'Создаю цифровые продукты', place: 'Фергана, Узбекистан',
+      name: 'Умид Йулдашев', role: 'Perhaps I belong to another century.', place: 'Фергана, Узбекистан',
       tabContacts: 'Контакты', tabAbout: 'О себе', liHint: 'Профиль',
       fieldLabel: 'Направление', stackLabel: 'Стек', cityLabel: 'Город', cityValue: 'Фергана',
       save: 'Сохранить контакт', scan: 'Наведите камеру на код',
@@ -377,20 +385,20 @@
       locale: 'ru-RU', code: 'ru'
     },
     uz: {
-      name: 'Umid Yuldashev', role: 'Raqamli mahsulotlar yarataman', place: 'Farg‘ona, O‘zbekiston',
+      name: 'Umid Yuldashev', role: 'Perhaps I belong to another century.', place: 'Farğona, Özbekiston',
       tabContacts: 'Kontaktlar', tabAbout: 'Men haqimda', liHint: 'Profil',
-      fieldLabel: 'Yo‘nalish', stackLabel: 'Stek', cityLabel: 'Shahar', cityValue: 'Farg‘ona',
-      save: 'Kontaktni saqlash', scan: 'Kamerani kodga qarating',
+      fieldLabel: 'Yönaliş', stackLabel: 'Stek', cityLabel: 'Şahar', cityValue: 'Farğona',
+      save: 'Kontaktni saqlaş', scan: 'Kamerani kodga qarating',
       statusOn: 'Aloqada', statusOff: 'Oflayn', copiedValue: 'Nusxalandi',
-      wxLabel: 'Farg‘onada ob-havo', wxHint: 'Kod ochiq turganda ekran o‘chmaydi',
-      qrZoom: 'Kodni to‘liq ekranda ko‘rsatish', qrShowClose: 'Yopish',
+      wxLabel: 'Farğonada ob-havo', wxHint: 'Kod oçiq turganda ekran öçmaydi',
+      qrZoom: 'Kodni töliq ekranda körsatiş', qrShowClose: 'Yopiş',
       copied: 'Havola nusxalandi', failed: 'Bajarilmadi', savedVcf: 'Kontakt saqlanmoqda',
-      themeLabel: 'Mavzuni almashtirish', shareLabel: 'Ulashish',
-      qrOpen: 'QR-kodni ko‘rsatish', qrClose: 'Kontaktlarga qaytish', copyLabel: 'Havoladan nusxa olish',
-      locale: 'uz-UZ', code: 'uz'
+      themeLabel: 'Mavzuni almaştiriş', shareLabel: 'Ulaşiş',
+      qrOpen: 'QR-kodni körsatiş', qrClose: 'Kontaktlarga qaytiş', copyLabel: 'Havoladan nusxa oliş',
+      locale: 'uz-UZ', code: 'uz-Latn'
     },
     en: {
-      name: 'Umid Yuldashev', role: 'I build digital products', place: 'Fergana, Uzbekistan',
+      name: 'Umid Yuldashev', role: 'Perhaps I belong to another century.', place: 'Fergana, Uzbekistan',
       tabContacts: 'Contacts', tabAbout: 'About', liHint: 'Profile',
       fieldLabel: 'Field', stackLabel: 'Stack', cityLabel: 'City', cityValue: 'Fergana',
       save: 'Save contact', scan: 'Scan to visit website',
@@ -658,17 +666,25 @@
 
   var scrollPending = false;
 
+  /* Параллакс двигает пятна под карточкой, а значит заставляет
+     пересчитывать её размытие на каждом кадре прокрутки. На телефонах
+     это главный источник рывков, поэтому там он выключен. */
+  var lightFx = !calm && window.matchMedia &&
+    !window.matchMedia('(max-width: 640px), (hover: none)').matches;
+
   function onScroll() {
     scrollPending = false;
     var y = window.scrollY || window.pageYOffset || 0;
-    if (!calm) html.style.setProperty('--sky-y', (y * -0.05).toFixed(1) + 'px');
+    html.style.setProperty('--sky-y', (y * -0.05).toFixed(1) + 'px');
   }
 
-  window.addEventListener('scroll', function () {
-    if (scrollPending) return;
-    scrollPending = true;
-    requestAnimationFrame(onScroll);
-  }, { passive: true });
+  if (lightFx) {
+    window.addEventListener('scroll', function () {
+      if (scrollPending) return;
+      scrollPending = true;
+      requestAnimationFrame(onScroll);
+    }, { passive: true });
+  }
 
   /* появление при прокрутке — ровно один раз */
   var reveals = [].slice.call(document.querySelectorAll('.reveal'));
@@ -794,6 +810,7 @@
 
   var flip = $('flip'), faceBack = $('face-back'), btnOpen = $('qr-open'), btnClose = $('qr-close');
   var flipInner = flip.querySelector('.flip-inner');
+  var flipTimer = null;
 
   /* Высоту контейнера задаёт та сторона, что сейчас видна. Обе стороны
      выведены из потока, поэтому без этого контейнер схлопнулся бы. */
@@ -834,6 +851,13 @@
 
   function setFlipped(on) {
     if (on) ensureQR();
+    /* Вращать элемент с backdrop-filter дорого: фон под ним
+       пересчитывается каждый кадр. На время анимации размытие
+       снимаем и подменяем непрозрачной заливкой. */
+    flip.classList.add('is-flipping');
+    clearTimeout(flipTimer);
+    flipTimer = setTimeout(function () { flip.classList.remove('is-flipping'); }, calm ? 0 : 700);
+
     flip.classList.toggle('is-back', on);
     syncFlipHeight();
     btnOpen.setAttribute('aria-expanded', on ? 'true' : 'false');

@@ -117,7 +117,12 @@
 
   [hidden] { display: none !important; }
 
-  *, *::before, *::after {
+  /* Переход по «*» раньше висел постоянно: несколько сотен элементов
+     с анимируемым box-shadow — налог на каждое изменение стиля, и на
+     телефоне это чувствовалось. Класс .theming скрипт ставит только на
+     700 мс переключения темы, поэтому в обычной работе глобальных
+     переходов нет вовсе, а смена темы по-прежнему плавная. */
+  .theming *, .theming *::before, .theming *::after {
     transition-property: color, background-color, border-color, outline-color,
                          text-decoration-color, fill, stroke, box-shadow, opacity;
     transition-duration: 460ms;
@@ -125,8 +130,8 @@
   }
 
   /* тема переключается волной: фон, затем стекло, затем текст */
-  .glass, .surf, .chip { transition-delay: 70ms; }
-  .wave { transition-delay: 140ms; }
+  .theming .glass, .theming .surf, .theming .chip { transition-delay: 70ms; }
+  .theming .wave { transition-delay: 140ms; }
 }
 
 @layer components {
@@ -379,10 +384,23 @@ button.chip-mini:active { transform: scale(.95); }
   transform-style: preserve-3d;
   transition: transform .64s cubic-bezier(.22, .68, 0, 1),
               height .44s cubic-bezier(.3, .8, .25, 1);
-  will-change: transform;
 }
 
 .flip.is-back .flip-inner { transform: rotateY(180deg); }
+
+/* Вращение элемента с backdrop-filter — самое дорогое, что есть на
+   странице: браузер пересобирает размытый фон под обеими сторонами
+   каждый кадр. На время анимации размытие снимаем и подменяем
+   непрозрачной заливкой: фон за карточкой почти ровный, поэтому
+   подмену не видно, а переворот идёт в полный кадр.
+   will-change живёт только здесь же — постоянный слой памяти не ест. */
+.flip.is-flipping .flip-inner { will-change: transform; }
+
+.flip.is-flipping .face {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background-color: var(--g-solid);
+}
 
 .face {
   border-radius: 30px;
@@ -759,6 +777,41 @@ button.chip-mini:active { transform: scale(.95); }
    и QR. Обратная сторона разворачивается в поток — без переворота
    и без backface-visibility, иначе код просто не напечатается.
    ========================================================= */
+
+/* =========================================================
+   БЮДЖЕТ ЭФФЕКТОВ ДЛЯ ТЕЛЕФОНОВ
+   backdrop-filter на мобильных GPU пересчитывается на каждом кадре,
+   и цена растёт с радиусом. Фон за карточкой почти ровный, поэтому
+   половинный радиус визуально неотличим, а стоит в разы меньше.
+   ========================================================= */
+
+@media (max-width: 640px), (hover: none) {
+  .theme-dark, .theme-light { --g-blur: 12px; }
+
+  /* чипы либо лежат на ровном фоне страницы, либо внутри карточки
+     поверх уже размытой поверхности — своё размытие им не даёт
+     ничего, кроме стоимости. Градиентная подсветка остаётся. */
+  .chip {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  /* хроматическая кромка держится на mix-blend-mode: это отдельный
+     слой композитинга на обеих сторонах карточки ради эффекта
+     толщиной в полпикселя. На телефоне он того не стоит. */
+  .ab { display: none; }
+
+  /* параллакса здесь нет (скрипт его не включает) — снимаем и слои */
+  .pool, .pool-2 {
+    transform: none;
+    will-change: auto;
+  }
+
+  .qr-show {
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+  }
+}
 
 @media print {
   @page { margin: 14mm; }
