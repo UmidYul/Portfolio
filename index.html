@@ -356,6 +356,10 @@
        Раньше правило висело на «*» постоянно: сотни элементов с
        переходом по box-shadow — это заметный налог на каждый кадр. */
     html.classList.add('theming');
+    /* Под карточкой на эти 700 мс переливаются все цвета сразу —
+       размытие пересчитывалось бы каждый кадр. Снимаем его так же,
+       как на перевороте: подмену на ровном фоне не видно. */
+    if (typeof quietGlass === 'function') quietGlass(760);
     clearTimeout(themeTimer);
     themeTimer = setTimeout(function () { html.classList.remove('theming'); }, 700);
 
@@ -611,7 +615,21 @@
     if (on) panels.style.height = on.offsetHeight + 'px';
   }
 
+  /* Пока панель меняет высоту, карточка перекраивается на каждом
+     кадре, а вместе с ней пересчитывается и размытие под ней. На
+     время перехода размытие снимаем и подменяем непрозрачной
+     заливкой — тот же приём, что и на перевороте. */
+  var quietTimer = null;
+  function quietGlass(ms) {
+    var el = document.getElementById('flip');
+    if (!el) return;
+    el.classList.add('is-quiet');
+    clearTimeout(quietTimer);
+    quietTimer = setTimeout(function () { el.classList.remove('is-quiet'); }, ms);
+  }
+
   function select(n, sweep) {
+    if (sweep && !calm) quietGlass(620);
     tabs.forEach(function (t, i) {
       var on = i === n;
       t.b.setAttribute('aria-selected', on ? 'true' : 'false');
